@@ -1,0 +1,34 @@
+<body>
+  <header>
+    <img src="/assets/images/logo.png" alt="">
+    <nav>
+      <a routerLink="/">Inicio</a>
+      <a routerLink="/crear-aprendiz">Registrate</a>
+      <a routerLink="/login">Inicio Sesión</a>
+    </nav>
+  </header>
+
+  <div class="login-h2">
+    <h2>Inicia Sesión</h2>
+  </div>
+
+  <form (submit)="onSubmit()">
+    <div>
+      <label for="username">Username:</label>
+      <input type="username" id="username" name="username" [(ngModel)]="username" required>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" [(ngModel)]="password" required>
+    </div>
+    <div class="text-danger" *ngIf="isLoginBlocked">
+      Debes esperar {{ remainingTime }} segundos antes de volver a intentarlo.
+    </div>
+    <button class="button" type="submit">Login</button>
+  </form>
+
+  <footer class="fooinicio">
+    <p>&copy; Msp Project - 2023 - Adso.</p>
+  </footer>
+</body>
+

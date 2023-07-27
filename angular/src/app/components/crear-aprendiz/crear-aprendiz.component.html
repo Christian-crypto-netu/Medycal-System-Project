@@ -1,0 +1,130 @@
+
+<body>
+  <header>
+    <img src="/assets/images/logo.png" alt="">
+    <nav>
+      <a routerLink="/">Inicio</a>
+      <a routerLink="/crear-aprendiz">Registrate</a>
+      <a routerLink="/login">Inicio Sesión</a>
+    </nav>
+  </header>
+
+  <div class="registrate-h2">
+    <h2>Registrate</h2>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="enviarFormulario()">
+    <div>
+      <label for="ficha">Ficha:</label>
+      <input type="number" id="ficha" name="ficha" formControlName="ficha" [class.is-invalid] = "fichaValidation">
+      <small *ngIf="fichaValidation" class="text-danger">Ingrese la ficha a la cual pertenece</small>
+    </div>
+    <div>
+      <div>
+        <label for="pFormacion">Programa de Formación:</label>
+        <input type="text" id="pFormacion" name="pFormacion" formControlName="pFormacion" [class.is-invalid] = "pFormacionValidation">
+        <small *ngIf="pFormacionValidation" class="text-danger">Ingrese el programa de formacion al cual pertenece</small>
+      </div>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" formControlName="nombre" [class.is-invalid] = "nombreValidation">
+      <small *ngIf="nombreValidation"  class="text-danger">Ingrese su nombre</small>
+    </div>
+    <div>
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" name="apellido" formControlName="apellido" [class.is-invalid] = "apellidoValidation">
+      <small *ngIf="apellidoValidation" class="text-danger">Ingrese su apellido</small>
+    </div>
+    <div>
+      <label for="tipoId">Tipo de Identificación:</label>
+      <select id="tipoId" name="tipoId" formControlName="tipoId" [class.is-invalid] = "tipoIdValidation">
+        <option value="">Seleccionar</option>
+        <option value="cedula">Cédula</option>
+        <option value="cedula">Tarjeta de Identidad</option>
+        <option value="cedula">Cédula de Extranjería</option>
+        <option value="pasaporte">Pasaporte</option>
+      </select>
+      <small *ngIf="tipoIdValidation"  class="text-danger">seleccione su tipo de documento de identidad</small>
+    </div>
+    <div>
+      <label for="identificacion">Identificación:</label>
+      <input type="text" id="identificacion" name="identificacion" formControlName="identificacion" [class.is-invalid] = "identificacionValidation">
+      <small *ngIf="identificacionValidation"  class="text-danger">Ingrese el numero de identificacion</small>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" formControlName="email" [class.is-invalid] = "emailValidation">
+      <small *ngIf="emailValidation"  class="text-danger">el campo email esta vacio o el email no es valido, ejemplo: user123@outlook.com</small>
+    </div>
+    <div>
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono" formControlName="telefono" [class.is-invalid] = "telefonoValidation">
+      <small *ngIf="telefonoValidation"  class="text-danger">ingrese su numero de telefono</small>
+    </div>
+    <div>
+      <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+      <input type="date" id="fechaNacimiento" name="fechaNacimiento" formControlName="fechaNacimiento" [class.is-invalid] = "fechaNacimientoValidation">
+      <small *ngIf="fechaNacimientoValidation"  class="text-danger">Seleccione su fecha de nacimiento</small>
+    </div>
+    <div>
+      <label for="ciudad">Ciudad/Municipio:</label>
+      <input type="text" id="ciudad" name="ciudad" formControlName="ciudad" [class.is-invalid] = "ciudadValidation">
+      <small *ngIf="ciudadValidation" class="text-danger">ingrese su lugar de residencia</small>
+    </div>
+    <div>
+      <label for="direccion">Dirección:</label>
+      <input type="text" id="direccion" name="direccion" formControlName="direccion" [class.is-invalid] = "direccionValidation">
+      <small *ngIf="direccionValidation" class="text-danger">ingrese su direccion</small>
+    </div>
+    <div>
+      <label for="sexo">Sexo:</label>
+      <select id="sexo" name="sexo" formControlName="sexo" [class.is-invalid] = "sexoValidation">
+        <option value="">Seleccionar</option>
+        <option value="masculino">Masculino</option>
+        <option value="femenino">Femenino</option>
+      </select>
+      <small *ngIf="sexoValidation"  class="text-danger">seleccione su sexo</small>
+    </div>
+    <div>
+      <label for="eps">EPS:</label>
+      <input type="text" id="eps" name="eps" formControlName="eps" [class.is-invalid] = "epsValidation">
+      <small *ngIf="epsValidation"  class="text-danger">ingrese el nombre de su EPS</small>
+    </div>
+    <div>
+      <label for="numeroEps">Número EPS:</label>
+      <input type="number" id="numeroEps" name="numeroEps" formControlName="numeroEps">
+      <small class="text-danger">Ingrese el numero de su EPS</small>
+    </div>
+    <div>
+      <label for="padecimientos">Padecimientos:</label>
+      <textarea id="padecimientos" name="padecimientos" placeholder="Escriba aquí las condiciones que padezca" formControlName="padecimientos"></textarea>
+      <small class="text-danger">Ingrese aqui las enfermedades o padecimientos que usted padezca</small>
+    </div>
+    <div>
+      <label for="medicamentos">Medicamentos:</label>
+      <textarea id="medicamentos" name="medicamentos" placeholder="Escriba aquí medicamentos que consume y si es posible tambien sus recetas (si usa), sino haga caso omiso" formControlName="medicamentos"></textarea>
+      <small class="text-danger">Ingrese los nombre de los medicamentos que consume para sus enfermedades o padecimientos</small>
+    </div>
+    <div>
+      <label for="acudiente">Acudiente:</label>
+      <input type="text" id="acudiente" name="acudiente" formControlName="acudiente" [class.is-invalid] = "acudienteValidation">
+      <small *ngIf="acudienteValidation"  class="text-danger">Ingrese el nombre de un acudiente o familiar cercano</small>
+    </div>
+    <div>
+      <label for="acudienteId">Cedula Acudiente:</label>
+      <input type="number" id="acudienteId" name="acudienteId" formControlName="acudienteId" [class.is-invalid] = "acudienteIdValidation" >
+      <small *ngIf="acudienteIdValidation" class="text-danger">Ingrese el numero de cedula de su acudiente o familiar</small>
+    </div>
+    <div>
+      <label for="numAcudiente">Número del Acudiente:</label>
+      <input type="number" id="numAcudiente" name="numAcudiente" formControlName="numAcudiente" [class.is-invalid] = "numAcudienteValidation">
+      <small *ngIf="numAcudienteValidation" class="text-danger">Ingrese el numero de telefono de su acudiente</small>
+    </div>
+    <button type="submit" >Enviar</button>
+    
+  </form>
+  
+  <footer>
+    <p>&copy; Msp Project - 2023 - Adso.</p>
+  </footer>
+
+</body>

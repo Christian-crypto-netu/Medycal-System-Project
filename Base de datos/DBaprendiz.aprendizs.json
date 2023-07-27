@@ -1,0 +1,62 @@
+[{
+  "_id": {
+    "$oid": "646fe5691f098a78b9997593"
+  },
+  "ficha": 2502880,
+  "pFormacion": "ADSO",
+  "nombre": "Cristian",
+  "apellido": "Cardenas Gonzalez",
+  "tipoId": "Cedula",
+  "identificacion": 1005623188,
+  "email": "ccamilocar@hotmail.com",
+  "telefono": {
+    "$numberLong": "3183876505"
+  },
+  "fechaNacimiento": "17-03-2002",
+  "ciudad": "Puerto Parra",
+  "direccion": "Cra 43",
+  "sexo": "Masculino",
+  "eps": "Sanitas",
+  "numeroEps": 0,
+  "padecimientos": "ninguno",
+  "medicamentos": "ninguno",
+  "acudiente": "Carlos Cardenas",
+  "acudienteId": {
+    "$numberLong": "2340596483"
+  },
+  "numAcudiente": {
+    "$numberLong": "3184258706"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "646ff11fe1761ef1cc762316"
+  },
+  "ficha": 2502880,
+  "pFormacion": "ADSO",
+  "nombre": "Alejo Camilo",
+  "apellido": "Cardenas Gonzalez",
+  "tipoId": "Cedula",
+  "identificacion": 1005623188,
+  "email": "ccamilocar@hotmail.com",
+  "telefono": {
+    "$numberLong": "3183876505"
+  },
+  "fechaNacimiento": "17-03-2002",
+  "ciudad": "Puerto Parra",
+  "direccion": "Cra 43",
+  "sexo": "Masculino",
+  "eps": "Sanitas",
+  "numeroEps": 0,
+  "padecimientos": "ninguno",
+  "medicamentos": "ninguno",
+  "acudiente": "Carlos Cardenas",
+  "acudienteId": {
+    "$numberLong": "2340596483"
+  },
+  "numAcudiente": {
+    "$numberLong": "3184258706"
+  },
+  "__v": 0
+}]

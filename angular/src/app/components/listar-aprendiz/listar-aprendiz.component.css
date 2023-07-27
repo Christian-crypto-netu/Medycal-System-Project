@@ -1,0 +1,126 @@
+.home-h2{
+  text-align: center;
+  margin: 25px 15px 5px;
+  font-weight: bold;
+}
+
+.search {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-bottom: 10px;
+  margin: 10px;
+}
+
+input[type="search"] {
+  width: 10%;
+  padding: 8px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+}
+
+a {
+  transition: all 0.3s ease-in-out;
+  background-color: aqua;
+  color: black;
+  font-weight: bold;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+a:hover{
+  background-color: white;
+  border: solid 1px black;
+  box-shadow: 0 0 10px black;
+}
+
+
+.table-wrapper {
+  width: 100%;
+  max-height: 500px;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.body{
+  padding: 15px;
+  width: 97%;
+}
+
+table {
+  width: 1800px;
+  table-layout: fixed;
+}
+
+th,td {
+  width: 200px;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-weight: bold;
+}
+
+.uso{
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.uso h4{
+  text-align: center;
+  padding: 10px;
+  background-color: aqua;
+  margin: -20px 355px;
+  border-radius: 5px;
+  position: absolute;
+}
+
+.uso p{
+  text-align: justify;
+  margin: 20px 25px -20;
+  background-color: rgb(209, 209, 209);
+  border-radius: 5px;
+  padding: 25px 10px;
+}
+
+i{
+  margin: 10px;
+  cursor: pointer;
+}
+
+#editar{
+  padding: 5px;
+  background-color: aqua;
+  border-radius: 5px;
+}
+
+#editar:hover{
+  color: white;
+}
+
+#eliminar{
+  padding: 5px;
+  background-color: red;
+  border-radius: 5px;
+}
+
+#eliminar:hover{
+  color: white;
+}
+
+footer{
+  padding: 15px;
+  margin: 10px;
+  background-color: aqua;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+

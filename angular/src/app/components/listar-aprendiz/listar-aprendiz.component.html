@@ -1,0 +1,87 @@
+<body>
+  <header>
+    <img src="assets/images/logo.png" alt="">
+    <nav>
+      <a routerLink="/">Inicio</a>
+      <a routerLink="/crear-aprendiz">Registrate</a>
+      <a routerLink="/login">Inicio Sesión</a>
+    </nav>
+  </header>
+
+  <div class="body">
+    <div class="database">
+      <div class="container-data">
+        <div class="search">
+          <input type="search" placeholder="Buscar...">
+          <a href="#">Buscar</a>
+        </div>
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                
+                <th>Ficha</th>
+                <th>Programa de Formación</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Tipo de Identificación</th>
+                <th>Identificación</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Ciudad/Municipio</th>
+                <th>Dirección</th>
+                <th>Sexo</th>
+                <th>EPS</th>
+                <th>Número de la EPS</th>
+                <th>Padecimientos</th>
+                <th>Medicamentos</th>
+                <th>Acudientes</th>
+                <th>Cedula acudiente</th>
+                <th>Número Acudiente</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let aprendiz of aprendices">
+                <td>{{ aprendiz.ficha }}</td>
+                <td>{{ aprendiz.pFormacion }}</td>
+                <td>{{ aprendiz.nombre }}</td>
+                <td>{{ aprendiz.apellido }}</td>
+                <td>{{ aprendiz.tipoId }}</td>
+                <td>{{ aprendiz.identificacion }}</td>
+                <td>{{ aprendiz.email }}</td>
+                <td>{{ aprendiz.telefono }}</td>
+                <td>{{ aprendiz.fechaNacimiento }}</td>
+                <td>{{ aprendiz.ciudad }}</td>
+                <td>{{ aprendiz.direccion }}</td>
+                <td>{{ aprendiz.sexo }}</td>
+                <td>{{ aprendiz.eps }}</td>
+                <td>{{ aprendiz.numeroEps }}</td>
+                <td>{{ aprendiz.padecimientos }}</td>
+                <td>{{ aprendiz.medicamentos }}</td>
+                <td>{{ aprendiz.acudiente }}</td>
+                <td>{{ aprendiz.acudienteId }}</td>
+                <td>{{ aprendiz.numAcudiente }}</td>
+                <td>
+                  <i class="fa-solid fa-user-pen" id="editar" (click)="editarAprendiz(aprendiz)"></i>
+                  <i class="fa-solid fa-user-minus" id="eliminar" (click)="eliminarAprendiz(aprendiz)"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="uso">
+    <h4>¿Cómo Usar?</h4>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit quibusdam mollitia error ratione quod molestias delectus atque, laborum reprehenderit ipsa vitae molestiae consectetur, praesentium omnis optio nesciunt illo dicta earum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut tempore provident alias dolores. Dolores alias eum id ratione dicta! Cupiditate error consectetur itaque voluptatum facilis exercitationem praesentium explicabo iste saepe. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis dignissimos labore sint aut, quia, sequi laborum suscipit reprehenderit aliquid corporis, tenetur tempore quidem mollitia maiores? Assumenda reiciendis vel delectus earum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur consequatur aperiam porro voluptate, saepe laudantium, maxime perferendis error eos cumque provident. Necessitatibus eligendi, fugit tempore quod maiores repellendus omnis qui.</p>
+  </div>
+
+  <footer>
+    <p>&copy; Msp Project - 2023 - Adso.</p>
+  </footer>
+
+</body>
