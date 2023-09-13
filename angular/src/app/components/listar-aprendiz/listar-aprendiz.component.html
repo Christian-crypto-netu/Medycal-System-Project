@@ -4,7 +4,14 @@
     <nav>
       <a routerLink="/">Inicio</a>
       <a routerLink="/crear-aprendiz">Registrate</a>
-      <a routerLink="/login">Inicio Sesión</a>
+      <ng-container *ngIf="estaAutenticado(); else inicioSesion">
+        <!-- Mostrar el enlace "Cerrar Sesión" cuando el usuario ha iniciado sesión -->
+        <a (click)="cerrarSesion()">Cerrar Sesión</a>
+      </ng-container>
+      <ng-template #inicioSesion>
+        <!-- Mostrar el enlace "Inicio Sesión" cuando el usuario no ha iniciado sesión -->
+        <a routerLink="/login">Inicio Sesión</a>
+      </ng-template>
     </nav>
   </header>
 
@@ -12,8 +19,8 @@
     <div class="database">
       <div class="container-data">
         <div class="search">
-          <input type="search" placeholder="Buscar...">
-          <a href="#">Buscar</a>
+          <input type="search" [(ngModel)]="busqueda" placeholder="Buscar...">
+          <a (click)="filtrarAprendices()" >Buscar</a>
         </div>
         <div class="table-wrapper">
           <table>

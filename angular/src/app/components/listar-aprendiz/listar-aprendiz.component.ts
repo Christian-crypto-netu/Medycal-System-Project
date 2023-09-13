@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AprendizServiceService } from '../../services/aprendiz-service.service';
 import { Router } from '@angular/router';
+import Fuse from 'fuse.js';
+import { Aprendiz } from 'src/app/models/aprendiz';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-listar-aprendiz',
@@ -9,9 +12,11 @@ import { Router } from '@angular/router';
 })
 export class ListarAprendizComponent implements OnInit {
 
-  constructor(private aprendizService: AprendizServiceService, private router: Router) { }
+  constructor(private aprendizService: AprendizServiceService, private router: Router, private authService: AuthService) { }
 
+  busqueda: string = '';
   aprendices: any = [];
+  fuse!: Fuse<any>;
 
   ngOnInit(): void {
     this.obtenerAprendices();
@@ -21,6 +26,8 @@ export class ListarAprendizComponent implements OnInit {
     this.aprendizService.obtenerAprendices().subscribe(
       (data: any) => {
         this.aprendices = data;
+        // Inicializa el objeto Fuse con la lista de aprendices
+        this.fuse = new Fuse(this.aprendices, { keys: ['nombre', 'identificacion'] });
       },
       (error) => {
         console.log(error);
@@ -51,10 +58,29 @@ export class ListarAprendizComponent implements OnInit {
         this.obtenerAprendices();
       },
       (error) => {
-        // Manejar el error en caso de que ocurra
+        console.log(error);
       }
     );
   }
   
+  filtrarAprendices() {
+    if (this.busqueda.trim() === '') {
+      // Si el campo de búsqueda está vacío, mostrar todos los aprendices
+      this.obtenerAprendices();
+    } else {
+      // Filtrar aprendices por número de identificación exacto
+      this.aprendices = this.aprendices.filter((aprendiz: any) =>
+        aprendiz.identificacion.toString() === this.busqueda.trim()
+      );
+    }
+  }
   
+  estaAutenticado(): boolean {
+    return this.authService.isAuthenticated$.getValue(); // Obtiene el valor actual de isAuthenticated$
+  }
+  cerrarSesion() {
+    
+    this.router.navigate(['/login']);
+  }
+
 }
