@@ -126,7 +126,7 @@ export class CrearAprendizComponent implements OnInit {
     if (this.aprendizId) {
       this.aprendizService.editarAprendiz(this.aprendizId, formData).subscribe(
         (response) => {
-          Swal.fire('¡Buen trabajo!', '¡El formulario ha sido actualizado!', 'success');
+          Swal.fire('¡Buen trabajo!', '¡El Aprendiz ha sido actualizado!', 'success');
           this.router.navigate(['/listar-aprendiz']);
         },
         (error) => {

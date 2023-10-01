@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username: string = '';
+  UsernameOrEmail: string = '';
   password: string = '';
   errorMessage: string = '';
   maxloginAttempts = 3;
@@ -28,9 +28,10 @@ export class LoginComponent implements OnInit {
       return; // Si el inicio de sesión está bloqueado, no hacer nada
     }
 
-    this.authService.login(this.username, this.password).subscribe(
+    this.authService.login(this.UsernameOrEmail, this.password).subscribe(
       () => {
         // Redireccionar a la página deseada después del inicio de sesión exitoso
+
         this.router.navigate(['/listar-aprendiz']);
         Swal.fire({
           position: 'top-end',
@@ -40,14 +41,39 @@ export class LoginComponent implements OnInit {
           timer: 1500
         });
       },
-      error => {
+      (error) => {
+        if (error.status === 401 && error.error.message === 'Incorrect password') {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'Oops...',
+            text: 'La contraseña es incorrecta. Por favor, intentelo nuevamente',
+            showConfirmButton: false,
+            timer: 1500
+          });
+      } else {
+        console.error(error);
+        console.log('credenciales: ', this.UsernameOrEmail, this.password)
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Ha ocurrido un error durante el inicio de sesion. Por favor, intentelo nuevamente mas tarde',
+          showConfirmButton: false,
+          timer: 2000
+        });
+      }
         this.errorMessage = error.message;
         this.loginAttempts++;
 
         if (this.loginAttempts >= this.maxloginAttempts) {
           this.isLoginBlocked = true;
           this.startLoginBlockTimer();
-          alert(`Se han alcanzado los ${this.maxloginAttempts} intentos máximos de inicio de sesión. Por favor, espere ${this.loginBlockTime} segundos antes de intentarlo nuevamente.`);
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: `Se han alcanzado los ${this.maxloginAttempts} intentos máximos de inicio de sesión. Por favor, espere ${this.loginBlockTime} segundos antes de intentarlo nuevamente.`
+          })
         }
       }
     );

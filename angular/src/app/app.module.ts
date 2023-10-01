@@ -10,6 +10,8 @@ import { InicioComponent } from './components/inicio/inicio.component';
 import { LoginComponent } from './components/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { ResetPasswordRequestComponent } from './components/reset-password-request/reset-password-request.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { FormsModule } from '@angular/forms';
     CrearAprendizComponent,
     ListarAprendizComponent,
     InicioComponent,
-    LoginComponent
+    LoginComponent,
+    ResetPasswordComponent,
+    ResetPasswordRequestComponent
   ],
   imports: [
     BrowserModule,

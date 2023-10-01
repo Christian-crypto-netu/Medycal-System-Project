@@ -14,8 +14,8 @@
 
   <form (submit)="onSubmit()">
     <div>
-      <label for="username">Username:</label>
-      <input type="username" id="username" name="username" [(ngModel)]="username" required>
+      <label for="username">Username o Email:</label>
+      <input type="username" id="username" name="username" [(ngModel)]="UsernameOrEmail" required>
     </div>
     <div>
       <label for="password">Password</label>
@@ -23,7 +23,7 @@
     </div>
     <div class="text-danger" *ngIf="isLoginBlocked">
       Debes esperar {{ remainingTime }} segundos antes de volver a intentarlo.
-      <a href="#">¿Olvidaste la contraseña?</a>
+      <a class="link" routerLink="/reset-password-request">Olvidaste la contraseña?</a>
     </div>
     <button class="button" type="submit">Login</button>
   </form>

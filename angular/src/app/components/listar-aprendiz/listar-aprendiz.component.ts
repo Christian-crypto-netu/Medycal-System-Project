@@ -53,7 +53,7 @@ export class ListarAprendizComponent implements OnInit {
     const id = aprendiz._id; // Obtener solo el _id del aprendiz
     this.aprendizService.eliminarAprendiz(id).subscribe(
       (response) => {
-        // Eliminación exitosa, realizar acciones adicionales si es necesario
+        // Eliminación exitosa.
         // Actualizar la tabla volviendo a obtener los aprendices
         this.obtenerAprendices();
       },

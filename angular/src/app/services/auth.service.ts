@@ -15,14 +15,35 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(username: string, password: string): Observable<any> {
+  login(UsernameOrEmail: string, password: string): Observable<any> {
     const url = `${this.apiUrl}/login`;
-    return this.http.post(url, { username, password, secretKey: this.secretKey })
+
+    const isEmail = UsernameOrEmail.includes('@');
+
+    const loginData = isEmail
+    ? { email: UsernameOrEmail, password, secretKey: this.secretKey}
+    : { username: UsernameOrEmail, password, secretKey: this.secretKey}
+
+
+    return this.http.post(url, loginData)
       .pipe(
         tap(() => {
           this.isAuthenticated$.next(true);
         })
       );
+  }
+
+  resetPasswordRequest(email: string): Observable<any> {
+    const url = `${this.apiUrl}/forgot-password`;
+    return this.http.post(url, { email });
+  }
+
+  resetPassword(token: string, newPassword: string): Observable<any> {
+    const url = `${this.apiUrl}/reset-password`;
+
+    const resetPasswordData = { token, newPassword, secretKey: this.secretKey };
+
+    return this.http.post(url, resetPasswordData);
   }
 }
 

@@ -70,4 +70,10 @@ textarea {
 }
 .text-danger {
   color: red !important;
+  font-weight: bold;
+  border-end-end-radius: 15px;
+}
+
+.link{
+  cursor: pointer;
 }
