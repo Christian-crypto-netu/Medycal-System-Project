@@ -111,6 +111,7 @@ export class CrearAprendizComponent implements OnInit {
     });
   }
 
+
   enviarFormulario() {
     if (this.form.invalid) {
       Swal.fire({
@@ -120,21 +121,17 @@ export class CrearAprendizComponent implements OnInit {
       });
       return;
     }
-
+  
     const formData = this.form.value;
-
+  
     if (this.aprendizId) {
       this.aprendizService.editarAprendiz(this.aprendizId, formData).subscribe(
         (response) => {
-          Swal.fire('¡Buen trabajo!', '¡El Aprendiz ha sido actualizado!', 'success');
+          Swal.fire('¡Buen trabajo!', '¡El formulario ha sido actualizado!', 'success');
           this.router.navigate(['/listar-aprendiz']);
         },
         (error) => {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Ha ocurrido un error al enviar el formulario'
-          });
+          this.handleError(error);
         }
       );
     } else {
@@ -143,13 +140,25 @@ export class CrearAprendizComponent implements OnInit {
           Swal.fire('¡Buen trabajo!', '¡El formulario ha sido registrado!', 'success');
         },
         (error) => {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Ha ocurrido un error al enviar el formulario'
-          });
+          this.handleError(error);
         }
       );
+    }
+  }
+  
+  private handleError(error: any) {
+    if (error === 'La identificación ya está registrada.') {
+      Swal.fire({
+        icon: 'error',
+        title: 'Identificación duplicada',
+        text: 'La identificación ya está registrada. Por favor, revise bien su numero de identificación.'
+      });
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Ha ocurrido un error al enviar el formulario'
+      });
     }
   }
 

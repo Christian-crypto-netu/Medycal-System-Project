@@ -1,13 +1,19 @@
 const Aprendiz = require('../models/Aprendiz');
 
-exports.crearAprendiz = async (req, res) =>{
+exports.crearAprendiz = async (req, res) => {
   try {
-    let aprendiz;
-    aprendiz = new Aprendiz(req.body);
+    // Verificar si la identificación ya existe
+    const identificacionExistente = await Aprendiz.findOne({ identificacion: req.body.identificacion });
 
+    if (identificacionExistente) {
+      return res.status(400).json({ error: 'La identificación ya está registrada.' });
+    }
+
+    // Si la identificación no existe, proceder con la creación del aprendiz
+    let aprendiz = new Aprendiz(req.body);
     await aprendiz.save();
-    res.send(aprendiz);
 
+    res.send(aprendiz);
   } catch (error) {
     console.log(error);
     res.status(500).send('Error');
@@ -39,7 +45,16 @@ exports.obtenerAprendiz = async (req, res) => {
   }
 };
 
-
+exports.obtenerAprendicesFiltrados = async (req, res) => {
+  try {
+    const { identificacion } = req.query;
+    const aprendicesFiltrados = await Aprendiz.find({ identificacion });
+    res.json(aprendicesFiltrados);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send('Error');
+  }
+};
 
 
 exports.editarAprendiz = async (req, res) =>{

@@ -15,6 +15,7 @@ app.use(cors());
 // Rutas
 app.use('/api/aprendices', require('./routes/aprendizRoutes'));
 app.use('/api/auth', require('./routes/auth.routes.js'));
+app.use('/api/historial', require('./routes/historialRoutes'));
 
 // Middleware para redirigir solicitudes no coincidentes a index.html
 app.use(express.static(path.join(__dirname, '../angular/src/app/components/reset-password')));

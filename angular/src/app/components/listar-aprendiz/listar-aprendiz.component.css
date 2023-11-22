@@ -10,6 +10,25 @@
   align-items: center;
   margin-bottom: 10px;
   margin: 10px;
+  font-family: 'Playpen Sans', cursive;
+}
+
+.container {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 10px;
+  margin: 10px;
+  font-family: 'Playpen Sans', cursive;
+}
+
+#search {
+ background-color: blue;
+ border: solid 1px;
+}
+#search:hover {
+  background-color: white !important;
+  border: solid 1px;
 }
 
 input[type="search"] {
@@ -23,7 +42,6 @@ input[type="search"] {
 
 a {
   transition: all 0.3s ease-in-out;
-  background-color: aqua;
   color: black;
   font-weight: bold;
   padding: 8px 12px;
@@ -34,13 +52,6 @@ a {
   margin-left: 20px;
   text-decoration: none;
 }
-
-a:hover{
-  background-color: white;
-  border: solid 1px black;
-  box-shadow: 0 0 10px black;
-}
-
 
 .table-wrapper {
   width: 100%;
@@ -59,7 +70,17 @@ table {
   table-layout: fixed;
 }
 
-th,td {
+th{
+  font-family: 'Playpen Sans', cursive;
+  width: 200px;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-weight: bold;
+}
+
+td{
+  font-family: 'Lato', sans-serif;
   width: 200px;
   text-align: center;
   padding: 10px;
@@ -76,10 +97,10 @@ th,td {
 .uso h4{
   text-align: center;
   padding: 10px;
-  background-color: aqua;
+  background-color: #2d68c8;
   margin: -20px 355px;
   border-radius: 5px;
-  position: absolute;
+  position: absolute;font-family: 'Playpen Sans', cursive;
 }
 
 .uso p{
@@ -88,6 +109,7 @@ th,td {
   background-color: rgb(209, 209, 209);
   border-radius: 5px;
   padding: 25px 10px;
+  font-family: 'Lato', sans-serif;
 }
 
 i{
@@ -97,11 +119,31 @@ i{
 
 #editar{
   padding: 5px;
-  background-color: aqua;
+  background-color: #2d68c8;
   border-radius: 5px;
 }
 
 #editar:hover{
+  color: white;
+}
+
+#detalles{
+  padding: 5px;
+  background-color: lime;
+  border-radius: 5px;
+}
+
+#detalles:hover{
+  color: white;
+}
+
+#pdf{
+  padding: 5px;
+  background-color: blueviolet;
+  border-radius: 5px;
+}
+
+#pdf:hover{
   color: white;
 }
 
@@ -118,9 +160,8 @@ i{
 footer{
   padding: 15px;
   margin: 10px;
-  background-color: aqua;
+  background-color: #2d68c8;
   border-radius: 5px;
   text-align: center;
   font-weight: bold;
 }
-

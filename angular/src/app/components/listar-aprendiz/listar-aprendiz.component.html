@@ -20,13 +20,12 @@
       <div class="container-data">
         <div class="search">
           <input type="search" [(ngModel)]="busqueda" placeholder="Buscar...">
-          <a (click)="filtrarAprendices()" >Buscar</a>
+          <a (click)="filtrarYActualizar()">Buscar</a>
         </div>
         <div class="table-wrapper">
           <table>
             <thead>
               <tr>
-                
                 <th>Ficha</th>
                 <th>Programa de Formación</th>
                 <th>Nombre</th>
@@ -39,18 +38,18 @@
                 <th>Ciudad/Municipio</th>
                 <th>Dirección</th>
                 <th>Sexo</th>
-                <th>EPS</th>
-                <th>Número de la EPS</th>
-                <th>Padecimientos</th>
-                <th>Medicamentos</th>
-                <th>Acudientes</th>
-                <th>Cedula acudiente</th>
-                <th>Número Acudiente</th>
-                <th>Acciones</th>
+                <th *ngIf="showAllFields">EPS</th>
+                <th *ngIf="showAllFields">Número de la EPS</th>
+                <th *ngIf="showAllFields">Padecimientos</th>
+                <th *ngIf="showAllFields">Medicamentos</th>
+                <th *ngIf="showAllFields">Acudientes</th>
+                <th *ngIf="showAllFields">Cedula acudiente</th>
+                <th *ngIf="showAllFields">Número Acudiente</th>
+                <th *ngIf="showAllFields">Acciones</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let aprendiz of aprendices">
+              <tr *ngFor="let aprendiz of aprendicesToLoad">
                 <td>{{ aprendiz.ficha }}</td>
                 <td>{{ aprendiz.pFormacion }}</td>
                 <td>{{ aprendiz.nombre }}</td>
@@ -63,21 +62,29 @@
                 <td>{{ aprendiz.ciudad }}</td>
                 <td>{{ aprendiz.direccion }}</td>
                 <td>{{ aprendiz.sexo }}</td>
-                <td>{{ aprendiz.eps }}</td>
-                <td>{{ aprendiz.numeroEps }}</td>
-                <td>{{ aprendiz.padecimientos }}</td>
-                <td>{{ aprendiz.medicamentos }}</td>
-                <td>{{ aprendiz.acudiente }}</td>
-                <td>{{ aprendiz.acudienteId }}</td>
-                <td>{{ aprendiz.numAcudiente }}</td>
+                <td *ngIf="showAllFields">{{ aprendiz.eps }}</td>
+                <td *ngIf="showAllFields">{{ aprendiz.numeroEps }}</td>
+                <td *ngIf="showAllFields">{{ aprendiz.padecimientos }}</td>
+                <td *ngIf="showAllFields">{{ aprendiz.medicamentos }}</td>
+                <td *ngIf="showAllFields">{{ aprendiz.acudiente }}</td>
+                <td *ngIf="showAllFields">{{ aprendiz.acudienteId }}</td>
+                <td *ngIf="showAllFields">{{ aprendiz.numAcudiente }}</td>
                 <td>
-                  <i class="fa-solid fa-user-pen" id="editar" (click)="editarAprendiz(aprendiz)"></i>
-                  <i class="fa-solid fa-user-minus" id="eliminar" (click)="eliminarAprendiz(aprendiz)"></i>
+                  <i class="fa-solid fa-pen-to-square" id="editar" (click)="editarAprendiz(aprendiz)"></i>
+                  <i class="fa-solid fa-plus" id="detalles" (click)="toggleShowAllFields()"></i>
+                  <i class="fa-solid fa-file-pdf" id="pdf" (click)="navigateToHistorial(aprendiz)"></i>
+                  <i class="fa-solid fa-trash" id="eliminar" (click)="eliminarAprendiz(aprendiz)"></i>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
+          <span>{{ currentPage }} de {{ ceil(totalItems / pageSize) }}</span>
+          <select [(ngModel)]="pageSize" (change)="onPageSizeChange()">
+            <option *ngFor="let option of pageSizeOptions" [value]="option">{{ option }}</option>
+          </select>          
+          <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Anterior</button>
+          <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage * pageSize >= totalItems">Siguiente</button>
       </div>
     </div>
   </div>

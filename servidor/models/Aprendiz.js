@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const mongoosePaginate = require('mongoose-paginate-v2');
 
 const aprendizSchema = mongoose.Schema({
   ficha: {
@@ -77,6 +78,9 @@ const aprendizSchema = mongoose.Schema({
     type: Number,
     require: true
   }
-})
+});
+aprendizSchema.plugin(mongoosePaginate);
 
-module.exports = mongoose.model('aprendiz', aprendizSchema);
+const Aprendiz = mongoose.model('Aprendiz', aprendizSchema);
+
+module.exports = Aprendiz;

@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { ResetPasswordRequestComponent } from './components/reset-password-request/reset-password-request.component';
+import { HistorialComponent } from './components/historial/historial.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ResetPasswordRequestComponent } from './components/reset-password-reque
     InicioComponent,
     LoginComponent,
     ResetPasswordComponent,
-    ResetPasswordRequestComponent
+    ResetPasswordRequestComponent,
+    HistorialComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historial Médico</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      color: #333;
+      border-bottom: 2px solid #333;
+      padding-bottom: 5px;
+    }
+    h2 {
+      color: #555;
+      margin-top: 20px;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Historial Médico</h1>
+
+  <p>Fecha de Creación: {{historial.fechaCreacion}}</p>
+
+  <h2>Datos del Aprendiz</h2>
+  <p>Ficha: {{aprendiz.ficha}}</p>
+  <p>Programa de Formación: {{aprendiz.pFormacion}}</p>
+  <p>Nombre: {{aprendiz.nombre}} {{aprendiz.apellido}}</p>
+  <p>Tipo de Identificación: {{aprendiz.tipoId}}</p>
+  <p>Número de Identificación: {{aprendiz.identificacion}}</p>
+
+  <h2>Historial Médico</h2>
+
+  <p>Síntomas: {{historial.sintomas}}</p>
+  <p>Procedimientos: {{historial.procedimientos}}</p>
+  <p>Medicamentos: {{historial.medicamentos}}</p>
+</body>
+</html>
+
+

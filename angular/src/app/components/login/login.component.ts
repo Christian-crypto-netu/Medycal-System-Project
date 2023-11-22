@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
       (error) => {
         if (error.status === 401 && error.error.message === 'Incorrect password') {
           Swal.fire({
-            position: 'top-end',
+            position: 'center',
             icon: 'error',
             title: 'Oops...',
             text: 'La contraseña es incorrecta. Por favor, intentelo nuevamente',
@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
         console.error(error);
         console.log('credenciales: ', this.UsernameOrEmail, this.password)
         Swal.fire({
-          position: 'top-end',
+          position: 'center',
           icon: 'error',
           title: 'Oops...',
           text: 'Ha ocurrido un error durante el inicio de sesion. Por favor, intentelo nuevamente mas tarde',

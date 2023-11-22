@@ -1,35 +1,68 @@
 <body>
   <header>
-    <img src="/assets/images/logo.png" alt="">
-    <nav>
-      <a routerLink="/">Inicio</a>
-      <a routerLink="/crear-aprendiz">Registrate</a>
-      <a routerLink="/login">Inicio Sesión</a>
-    </nav>
+      <img src="/assets/images/logo.png" alt="">
+      <nav>
+          <a routerLink="/">Inicio</a>
+          <a routerLink="/crear-aprendiz">Registrate</a>
+          <a routerLink="/login">Inicio Sesión</a>
+      </nav>
   </header>
 
-  <div class="login-h2">
-    <h2>Inicia Sesión</h2>
+  <div class="general">
+      <div class="noform">
+          <h1>Para tener en cuenta</h1>
+          <hr>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam magnam dolores, omnis quibusdam fuga facilis voluptatibus ipsum dolor, voluptatum facere adipisci commodi hic ex reiciendis harum eaque laudantium voluptate aut? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci cum delectus libero aliquam harum nam voluptas eaque numquam, ut nulla, sunt quam assumenda provident quasi non nostrum a modi aperiam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam odit repudiandae ad ut facere temporibus fugit eveniet error.</p>
+          <div class="links">
+              <a routerLink="/">Más Información</a>
+          </div>
+      </div>
+      <div class="form">
+          <form (submit)="onSubmit()">
+              <h1>Inicia Sesión con nosotros ahora</h1>
+              <hr>
+              <div>
+                  <label for="username">Username:</label>
+                  <input type="username" id="username" name="username" [(ngModel)]="UsernameOrEmail" required>
+              </div>
+              <div>
+                  <label for="password">Password:</label>
+                  <input type="password" id="password" name="password" [(ngModel)]="password" required>
+              </div>
+              <div class="text-danger" *ngIf="isLoginBlocked">
+                  Debes esperar {{ remainingTime }} segundos antes de volver a intentarlo.
+                  <a class="link" routerLink="/reset-password-request">¿Olvidaste la contraseña?</a>
+              </div>
+              <div class="button">
+                  <button type="submit">Inicia Sesión</button>
+              </div>
+          </form>
+      </div>
   </div>
 
-  <form (submit)="onSubmit()">
-    <div>
-      <label for="username">Username o Email:</label>
-      <input type="username" id="username" name="username" [(ngModel)]="UsernameOrEmail" required>
-    </div>
-    <div>
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" [(ngModel)]="password" required>
-    </div>
-    <div class="text-danger" *ngIf="isLoginBlocked">
-      Debes esperar {{ remainingTime }} segundos antes de volver a intentarlo.
-      <a class="link" routerLink="/reset-password-request">Olvidaste la contraseña?</a>
-    </div>
-    <button class="button" type="submit">Login</button>
-  </form>
+  <h1 class="sec-2">Observa las enfermedades y virus más comunes:</h1>
+  <section class="section-2">
+      <div class="tarjeta">
+          <img src="assets/images/somos1.jpg" alt="">
+          <h2>Todo Tipo de Cáncer</h2>
+          <p>El cáncer es una enfermedad caracterizada por el crecimiento descontrolado y anormal de células en el cuerpo. Estas células cancerosas pueden invadir tejidos y órganos circundantes, dañando su funcionamiento normal. El cáncer puede ocurrir en prácticamente cualquier parte del cuerpo y puede tener diversas causas, incluyendo factores genéticos, ambientales y de estilo de vida. A medida que las células cancerosas se multiplican y se propagan, pueden formar masas llamadas tumores. Es una enfermedad compleja que puede tener diferentes tipos y grados de gravedad</p>
+      </div>
+
+      <div class="tarjeta">
+          <img src="assets/images/somos2.jpg" alt="">
+          <h2>Transmisión Sexual</h2>
+          <p>Las ETS, o Enfermedades de Transmisión Sexual, son infecciones que se transmiten de una persona a otra a través del contacto sexual. Estas infecciones pueden ser causadas por bacterias, virus u otros microorganismos y pueden afectar los órganos sexuales y reproductivos. Algunas ETS comunes incluyen la clamidia, la gonorrea, la sífilis, el herpes genital, el VIH/SIDA, el virus del papiloma humano (VPH) y la tricomoniasis, entre otras. Pueden tener una amplia variedad de síntomas o ser asintomáticas, lo que las hace a menudo difíciles de detectar sin pruebas médicas.</p>
+      </div>
+
+      <div class="tarjeta">
+          <img src="assets/images/somos3.jpg" alt="">
+          <h2>Autismo</h2>
+          <p>El autismo, conocido también como Trastorno del Espectro Autista (TEA), es una condición neurológica que afecta el desarrollo social, de la comunicación y del comportamiento de una persona. Las personas con autismo pueden tener una amplia gama de características y habilidades, lo que es por eso que se denomina "espectro". Algunas de las características comunes del autismo incluyen dificultades en la interacción social, dificultades en la comunicación verbal y no verbal, patrones repetitivos de comportamiento e intereses, así como sensibilidades sensoriales.</p>
+      </div>
+  </section>
 
   <footer class="fooinicio">
-    <p>&copy; Msp Project - 2023 - Adso.</p>
+      <p>&copy; Msp Project - 2023 - Adso.</p>
   </footer>
-</body>
 
+</body>

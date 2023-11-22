@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AprendizServiceService } from '../../services/aprendiz-service.service';
 import { Router } from '@angular/router';
 import Fuse from 'fuse.js';
-import { Aprendiz } from 'src/app/models/aprendiz';
 import { AuthService } from 'src/app/services/auth.service';
+import { ChangeDetectorRef } from '@angular/core';
+
 
 @Component({
   selector: 'app-listar-aprendiz',
@@ -11,35 +12,87 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./listar-aprendiz.component.css']
 })
 export class ListarAprendizComponent implements OnInit {
-
-  constructor(private aprendizService: AprendizServiceService, private router: Router, private authService: AuthService) { }
-
+  aprendizId: string = '';
+  ceil = Math.ceil;
+  currentPage: number = 1;
+  pageSize: number = 5;
+  pageSizeOptions: number[] = [5, 10, 20];
+  totalItems: number = 0;
   busqueda: string = '';
-  aprendices: any = [];
+  aprendicesOriginales: any = [];
   fuse!: Fuse<any>;
+  showAllFields: boolean = false;
+  aprendicesToLoad: any = [];
+
+  constructor( private cdr: ChangeDetectorRef,private aprendizService: AprendizServiceService, private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.obtenerAprendices();
+    this.loadData();
   }
 
-  obtenerAprendices() {
-    this.aprendizService.obtenerAprendices().subscribe(
+  loadData() {
+    const params = {
+      page: this.currentPage,
+      limit: this.pageSize
+    };
+
+    console.log('Cargando datos. Página:', this.currentPage, 'Tamaño de página:', this.pageSize);
+
+    this.aprendizService.obtenerAprendicesPaginados(params).subscribe(
       (data: any) => {
-        this.aprendices = data;
-        // Inicializa el objeto Fuse con la lista de aprendices
-        this.fuse = new Fuse(this.aprendices, { keys: ['nombre', 'identificacion'] });
+        console.log('Datos cargados con éxito:', data);
+        this.aprendicesToLoad = data.data;
+        this.totalItems = data.totalDocs;
+        this.aprendicesOriginales = data.data.slice();
+        this.fuse = new Fuse(this.aprendicesOriginales, { keys: ['identificacion'], includeScore: true, shouldSort: true });
+        this.filtrarYActualizar();
       },
       (error) => {
-        console.log(error);
+        console.log('Error al cargar datos:', error);
       }
     );
   }
 
+  filtrarYActualizar() {
+    console.log('Búsqueda:', this.busqueda);
+
+    if (this.busqueda.trim() === '') {
+      this.aprendicesToLoad = this.aprendicesOriginales.slice();
+    } else {
+      const resultados = this.fuse.search(this.busqueda.trim());
+      this.aprendicesToLoad = resultados.map((resultado) => resultado.item);
+    }
+    console.log('Aprendices después de filtrar y actualizar:', this.aprendicesToLoad);
+    this.cdr.detectChanges();
+  }
+
+  updateAprendicesToLoad() {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.aprendicesToLoad = this.aprendicesOriginales.slice(startIndex, endIndex);
+    console.log('Aprendices a cargar en la página actual:', this.aprendicesToLoad);
+  }
+
+  toggleShowAllFields() {
+    this.showAllFields = !this.showAllFields;
+    this.filtrarYActualizar();
+  }
+
+  onPageChange(page: number) {
+    console.log('Cambio de página. Nueva página:', page);
+    this.currentPage = page;
+    this.loadData(); 
+    //this.filtrarYActualizar(); // Actualizar datos después de cambiar de página
+  }
+
+  onPageSizeChange() {
+    console.log('Cambio de tamaño de página. Nuevo tamaño de página:', this.pageSize);
+    this.loadData();  // Cargar nuevos datos después de cambiar el tamaño de la página
+  }
+
   editarAprendiz(aprendiz: any) {
-    // Lógica para editar el aprendiz
     this.aprendizService.editarAprendiz(aprendiz._id, aprendiz).subscribe(
       (data) => {
-        // Edición exitosa, redirigir al formulario de edición en el componente editar-aprendiz
         this.router.navigate(['/editar-aprendiz', aprendiz._id]);
       },
       (error) => {
@@ -47,40 +100,46 @@ export class ListarAprendizComponent implements OnInit {
       }
     );
   }
-  
 
   eliminarAprendiz(aprendiz: any) {
-    const id = aprendiz._id; // Obtener solo el _id del aprendiz
+    const id = aprendiz._id;
     this.aprendizService.eliminarAprendiz(id).subscribe(
       (response) => {
-        // Eliminación exitosa.
-        // Actualizar la tabla volviendo a obtener los aprendices
-        this.obtenerAprendices();
+        this.loadData();
       },
       (error) => {
         console.log(error);
       }
     );
   }
-  
-  filtrarAprendices() {
-    if (this.busqueda.trim() === '') {
-      // Si el campo de búsqueda está vacío, mostrar todos los aprendices
-      this.obtenerAprendices();
-    } else {
-      // Filtrar aprendices por número de identificación exacto
-      this.aprendices = this.aprendices.filter((aprendiz: any) =>
-        aprendiz.identificacion.toString() === this.busqueda.trim()
-      );
-    }
+
+  // filtrarAprendices() {
+  //   console.log("Búsqueda:", this.busqueda);
+  //   if (this.busqueda.trim() === '') {
+  //     this.aprendicesToLoad = this.aprendicesOriginales.slice();
+  //     console.log(this.aprendicesToLoad);
+  //     console.log(this.aprendicesOriginales);
+  //   } else {
+  //     const resultados = this.fuse.search(this.busqueda.trim());
+  //     this.aprendicesToLoad = resultados.map((resultado) => resultado.item);
+  //     console.log(this.aprendicesToLoad);
+  //   }
+
+  //   this.updateAprendicesToLoad();
+  // }
+
+  navigateToHistorial(aprendiz: any): void {
+    this.aprendizId = aprendiz._id;  // Asigna el valor a aprendizId
+    console.log('Aprendiz ID:', this.aprendizId);
+    this.router.navigate(['/historial', this.aprendizId]);
   }
   
+
   estaAutenticado(): boolean {
-    return this.authService.isAuthenticated$.getValue(); // Obtiene el valor actual de isAuthenticated$
-  }
-  cerrarSesion() {
-    
-    this.router.navigate(['/login']);
+    return this.authService.isAuthenticated$.getValue();
   }
 
+  cerrarSesion() {
+    this.router.navigate(['/login']);
+  }
 }
