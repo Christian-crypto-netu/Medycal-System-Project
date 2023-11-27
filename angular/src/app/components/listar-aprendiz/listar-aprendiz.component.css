@@ -1,16 +1,72 @@
-.home-h2{
-  text-align: center;
-  margin: 25px 15px 5px;
+body {
+  max-width: 250vh;
+  overflow: hidden;
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 20px;
+  background-color: #2d68c8;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+header img{
+  width: 100px;
+  height: 100px;
+}
+
+header nav{
+  display: flex;
+  align-items: center;
+}
+
+nav a{
+  text-decoration: none;
+  color: white;
   font-weight: bold;
+  margin-left: 15px;
+  transition: all 0.3s ease-in-out;
+  font-size: 20px;
+}
+
+nav a:hover{
+  color: #142861;
+  text-decoration: none;
+}
+
+.salir{
+  cursor: pointer;
+}
+
+.titulo{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.titulo > h1{
+  font-size: 25px;
+  text-align: center;
+  margin: 20px 20px 10px;
+  color: #142861;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.titulo > hr{
+  border: solid 2px #142861;
+  border-radius: 5px;
+  text-align: center;
+  width: 20%;
 }
 
 .search {
   display: flex;
   justify-content: end;
   align-items: center;
-  margin-bottom: 10px;
-  margin: 10px;
-  font-family: 'Playpen Sans', cursive;
+  margin: 0px 10px 10px;
+  font-family: 'Nunito', sans-serif;
 }
 
 .container {
@@ -19,7 +75,6 @@
   align-items: center;
   margin-bottom: 10px;
   margin: 10px;
-  font-family: 'Playpen Sans', cursive;
 }
 
 #search {
@@ -40,52 +95,60 @@ input[type="search"] {
   outline: none;
 }
 
-a {
-  transition: all 0.3s ease-in-out;
-  color: black;
-  font-weight: bold;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-  margin-left: 20px;
+.search a {
+  border-radius: 5px;
+  padding: 7px;
+  border: solid 2px gray;
   text-decoration: none;
+  color: gray;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  margin-left: 20px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.search a:hover{
+  border: solid 2px #142861;
+  color: #142861;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.body{
+  padding: 0% 3% 3%;
+  width: 97%;
+}
+
+th, td {
+  width: 100px; /* Establece el ancho fijo según tus necesidades */
+  height: 30px; /* Establece la altura fija según tus necesidades */
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #ccc;
+  font-weight: bold;
+  font-family: 'Nunito', sans-serif;
+  overflow: hidden;
+  white-space: normal;
+}
+
+th{
+  font-family: 'Bebas Neue', sans-serif;
+  color: #2d68c8;
+  font-size: 20px;
 }
 
 .table-wrapper {
-  width: 100%;
-  max-height: 500px;
+  max-width: 97%;
   overflow-x: auto;
   overflow-y: auto;
 }
 
-.body{
-  padding: 15px;
-  width: 97%;
-}
-
 table {
-  width: 1800px;
-  table-layout: fixed;
-}
-
-th{
-  font-family: 'Playpen Sans', cursive;
-  width: 200px;
-  text-align: center;
-  padding: 10px;
-  border: 1px solid #ccc;
-  font-weight: bold;
-}
-
-td{
-  font-family: 'Lato', sans-serif;
-  width: 200px;
-  text-align: center;
-  padding: 10px;
-  border: 1px solid #ccc;
-  font-weight: bold;
+  width: 100%;
+  table-layout: auto;
+  border-collapse: separate;
+  text-indent: initial;
+  border-spacing: 0px;
 }
 
 .uso{
@@ -100,7 +163,8 @@ td{
   background-color: #2d68c8;
   margin: -20px 355px;
   border-radius: 5px;
-  position: absolute;font-family: 'Playpen Sans', cursive;
+  position: absolute;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 .uso p{
@@ -109,11 +173,16 @@ td{
   background-color: rgb(209, 209, 209);
   border-radius: 5px;
   padding: 25px 10px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 i{
   margin: 10px;
+  cursor: pointer;
+}
+
+button > i{
+  margin: 0px;
   cursor: pointer;
 }
 
@@ -129,7 +198,7 @@ i{
 
 #detalles{
   padding: 5px;
-  background-color: lime;
+  background-color: #2d68c8;
   border-radius: 5px;
 }
 
@@ -139,7 +208,7 @@ i{
 
 #pdf{
   padding: 5px;
-  background-color: blueviolet;
+  background-color: #2d68c8;
   border-radius: 5px;
 }
 
@@ -149,12 +218,37 @@ i{
 
 #eliminar{
   padding: 5px;
-  background-color: red;
+  background-color: #2d68c8;
   border-radius: 5px;
 }
 
 #eliminar:hover{
   color: white;
+}
+
+.next{
+  font-family: 'Nunito', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-weight: bold;
+}
+
+.page{
+  margin-right: 10px;
+}
+
+.next select{
+  margin-left: 10px;
+  border-radius: 7px;
+  border: solid 2px gray;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.next select:focus{
+  border: solid 2px gray;
+  outline: none;
 }
 
 footer{
@@ -164,4 +258,6 @@ footer{
   border-radius: 5px;
   text-align: center;
   font-weight: bold;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
 }

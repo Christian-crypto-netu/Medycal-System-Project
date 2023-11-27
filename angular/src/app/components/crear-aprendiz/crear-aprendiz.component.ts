@@ -117,7 +117,13 @@ export class CrearAprendizComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Responde el formulario correctamente antes de enviar'
+        text: 'Responde el formulario correctamente antes de enviar',
+        didOpen: () => {
+          const container = Swal.getPopup();
+          if (container) {
+            container.style.fontFamily = 'Nunito';
+          }
+        }
       });
       return;
     }
@@ -127,7 +133,16 @@ export class CrearAprendizComponent implements OnInit {
     if (this.aprendizId) {
       this.aprendizService.editarAprendiz(this.aprendizId, formData).subscribe(
         (response) => {
-          Swal.fire('¡Buen trabajo!', '¡El formulario ha sido actualizado!', 'success');
+          Swal.fire({
+            icon: 'success',
+            title: 'Aprendiz actualizado correctamente',
+            didOpen: () => {
+              const container = Swal.getPopup();
+              if (container) {
+                container.style.fontFamily = 'Nunito';
+              }
+            }
+          });
           this.router.navigate(['/listar-aprendiz']);
         },
         (error) => {
@@ -137,7 +152,16 @@ export class CrearAprendizComponent implements OnInit {
     } else {
       this.aprendizService.crearAprendiz(formData).subscribe(
         (response) => {
-          Swal.fire('¡Buen trabajo!', '¡El formulario ha sido registrado!', 'success');
+          Swal.fire({
+            icon: 'success',
+            title: 'Aprendiz registrado correctamente',
+            didOpen: () => {
+              const container = Swal.getPopup();
+              if (container) {
+                container.style.fontFamily = 'Nunito';
+              }
+            }
+          });
         },
         (error) => {
           this.handleError(error);
@@ -151,13 +175,25 @@ export class CrearAprendizComponent implements OnInit {
       Swal.fire({
         icon: 'error',
         title: 'Identificación duplicada',
-        text: 'La identificación ya está registrada. Por favor, revise bien su numero de identificación.'
+        text: 'La identificación ya está registrada. Por favor, revise bien su numero de identificación.',
+        didOpen: () => {
+          const container = Swal.getPopup();
+          if (container) {
+            container.style.fontFamily = 'Nunito';
+          }
+        }
       });
     } else {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Ha ocurrido un error al enviar el formulario'
+        text: 'Ha ocurrido un error al enviar el formulario',
+        didOpen: () => {
+          const container = Swal.getPopup();
+          if (container) {
+            container.style.fontFamily = 'Nunito';
+          }
+        }
       });
     }
   }

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import Fuse from 'fuse.js';
 import { AuthService } from 'src/app/services/auth.service';
 import { ChangeDetectorRef } from '@angular/core';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -105,6 +106,17 @@ export class ListarAprendizComponent implements OnInit {
     const id = aprendiz._id;
     this.aprendizService.eliminarAprendiz(id).subscribe(
       (response) => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Hecho',
+          text: "El aprendiz ha sido eliminado exitosamente.",
+          didOpen: () => {
+            const container = Swal.getPopup();
+            if (container) {
+              container.style.fontFamily = 'Nunito';
+            }
+          }
+        })
         this.loadData();
       },
       (error) => {

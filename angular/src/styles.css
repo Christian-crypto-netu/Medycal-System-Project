@@ -8,12 +8,12 @@ header{
   justify-content: space-between;
   padding: 5px 20px;
   background-color: #2d68c8;
-  font-family: 'Playpen Sans', cursive;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 header img{
-  width: 75px;
-  height: 75px;
+  width: 100px;
+  height: 100px;
 }
 
 header nav{
@@ -23,19 +23,14 @@ header nav{
 
 nav a{
   text-decoration: none;
-  color: white;
+  color: black;
   font-weight: bold;
   margin-left: 15px;
   transition: all 0.3s ease-in-out;
+  font-size: 20px;
 }
 
 nav a:hover{
-  color: #142861;
+  color: white;
   text-decoration: none;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
 }

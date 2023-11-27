@@ -19,9 +19,9 @@ export class LoginComponent implements OnInit {
   loginBlockTimer: any; // Referencia al temporizador de bloqueo
   remainingTime: number = 0; // Tiempo restante en segundos
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onSubmit(): void {
     if (this.isLoginBlocked) {
@@ -31,14 +31,19 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.UsernameOrEmail, this.password).subscribe(
       () => {
         // Redireccionar a la página deseada después del inicio de sesión exitoso
-
         this.router.navigate(['/listar-aprendiz']);
         Swal.fire({
           position: 'top-end',
           icon: 'success',
-          title: 'Inicio de sesión exitoso',
+          title: '¡Inicio de sesión exitoso!',
           showConfirmButton: false,
-          timer: 1500
+          timer: 1500,
+          didOpen: () => {
+            const container = Swal.getPopup();
+            if (container) {
+              container.style.fontFamily = 'Nunito';
+            }
+          }
         });
       },
       (error) => {
@@ -47,22 +52,34 @@ export class LoginComponent implements OnInit {
             position: 'center',
             icon: 'error',
             title: 'Oops...',
-            text: 'La contraseña es incorrecta. Por favor, intentelo nuevamente',
+            text: '¡La contraseña es incorrecta! Por favor, intentelo nuevamente.',
             showConfirmButton: false,
-            timer: 1500
+            timer: 1500,
+            didOpen: () => {
+              const container = Swal.getPopup();
+              if (container) {
+                container.style.fontFamily = 'Nunito';
+              }
+            }
           });
-      } else {
-        console.error(error);
-        console.log('credenciales: ', this.UsernameOrEmail, this.password)
-        Swal.fire({
-          position: 'center',
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Ha ocurrido un error durante el inicio de sesion. Por favor, intentelo nuevamente mas tarde',
-          showConfirmButton: false,
-          timer: 2000
-        });
-      }
+        } else {
+          console.error(error);
+          console.log('credenciales: ', this.UsernameOrEmail, this.password)
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Oops...',
+            text: '¡Ha ocurrido un error durante el inicio de sesión! Por favor, intentelo nuevamente más tarde.',
+            showConfirmButton: false,
+            timer: 2000,
+            didOpen: () => {
+              const container = Swal.getPopup();
+              if (container) {
+                container.style.fontFamily = 'Nunito';
+              }
+            }
+          });
+        }
         this.errorMessage = error.message;
         this.loginAttempts++;
 
@@ -72,7 +89,13 @@ export class LoginComponent implements OnInit {
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: `Se han alcanzado los ${this.maxloginAttempts} intentos máximos de inicio de sesión. Por favor, espere ${this.loginBlockTime} segundos antes de intentarlo nuevamente.`
+            text: `¡Se han alcanzado los ${this.maxloginAttempts} intentos máximos de inicio de sesión! Por favor, espere ${this.loginBlockTime} segundos antes de intentarlo nuevamente.`,
+            didOpen: () => {
+              const container = Swal.getPopup();
+              if (container) {
+                container.style.fontFamily = 'Nunito';
+              }
+            }
           })
         }
       }

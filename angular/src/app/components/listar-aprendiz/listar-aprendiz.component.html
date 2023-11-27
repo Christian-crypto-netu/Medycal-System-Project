@@ -1,101 +1,113 @@
 <body>
   <header>
-    <img src="assets/images/logo.png" alt="">
-    <nav>
-      <a routerLink="/">Inicio</a>
-      <a routerLink="/crear-aprendiz">Registrate</a>
-      <ng-container *ngIf="estaAutenticado(); else inicioSesion">
-        <!-- Mostrar el enlace "Cerrar Sesión" cuando el usuario ha iniciado sesión -->
-        <a (click)="cerrarSesion()">Cerrar Sesión</a>
-      </ng-container>
-      <ng-template #inicioSesion>
-        <!-- Mostrar el enlace "Inicio Sesión" cuando el usuario no ha iniciado sesión -->
-        <a routerLink="/login">Inicio Sesión</a>
-      </ng-template>
-    </nav>
+      <img src="assets/images/logo.png" alt="">
+      <nav>
+          <a routerLink="/">Inicio</a>
+          <a routerLink="/crear-aprendiz">Registrate</a>
+          <ng-container *ngIf="estaAutenticado(); else inicioSesion">
+              <!-- Mostrar el enlace "Cerrar Sesión" cuando el usuario ha iniciado sesión -->
+              <a (click)="cerrarSesion()" class="salir">Cerrar Sesión<i class="fa-solid fa-right-from-bracket"></i></a>
+          </ng-container>
+          <ng-template #inicioSesion>
+              <!-- Mostrar el enlace "Inicio Sesión" cuando el usuario no ha iniciado sesión -->
+              <a routerLink="/login">Inicio Sesión</a>
+          </ng-template>
+      </nav>
   </header>
 
+  <div class="titulo">
+      <h1>Listado de Aprendices:</h1>
+      <hr>
+  </div>
+
   <div class="body">
-    <div class="database">
-      <div class="container-data">
-        <div class="search">
+      <div class="search">
           <input type="search" [(ngModel)]="busqueda" placeholder="Buscar...">
           <a (click)="filtrarYActualizar()">Buscar</a>
-        </div>
-        <div class="table-wrapper">
-          <table>
-            <thead>
-              <tr>
-                <th>Ficha</th>
-                <th>Programa de Formación</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Tipo de Identificación</th>
-                <th>Identificación</th>
-                <th>Email</th>
-                <th>Teléfono</th>
-                <th>Fecha de Nacimiento</th>
-                <th>Ciudad/Municipio</th>
-                <th>Dirección</th>
-                <th>Sexo</th>
-                <th *ngIf="showAllFields">EPS</th>
-                <th *ngIf="showAllFields">Número de la EPS</th>
-                <th *ngIf="showAllFields">Padecimientos</th>
-                <th *ngIf="showAllFields">Medicamentos</th>
-                <th *ngIf="showAllFields">Acudientes</th>
-                <th *ngIf="showAllFields">Cedula acudiente</th>
-                <th *ngIf="showAllFields">Número Acudiente</th>
-                <th *ngIf="showAllFields">Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let aprendiz of aprendicesToLoad">
-                <td>{{ aprendiz.ficha }}</td>
-                <td>{{ aprendiz.pFormacion }}</td>
-                <td>{{ aprendiz.nombre }}</td>
-                <td>{{ aprendiz.apellido }}</td>
-                <td>{{ aprendiz.tipoId }}</td>
-                <td>{{ aprendiz.identificacion }}</td>
-                <td>{{ aprendiz.email }}</td>
-                <td>{{ aprendiz.telefono }}</td>
-                <td>{{ aprendiz.fechaNacimiento }}</td>
-                <td>{{ aprendiz.ciudad }}</td>
-                <td>{{ aprendiz.direccion }}</td>
-                <td>{{ aprendiz.sexo }}</td>
-                <td *ngIf="showAllFields">{{ aprendiz.eps }}</td>
-                <td *ngIf="showAllFields">{{ aprendiz.numeroEps }}</td>
-                <td *ngIf="showAllFields">{{ aprendiz.padecimientos }}</td>
-                <td *ngIf="showAllFields">{{ aprendiz.medicamentos }}</td>
-                <td *ngIf="showAllFields">{{ aprendiz.acudiente }}</td>
-                <td *ngIf="showAllFields">{{ aprendiz.acudienteId }}</td>
-                <td *ngIf="showAllFields">{{ aprendiz.numAcudiente }}</td>
-                <td>
-                  <i class="fa-solid fa-pen-to-square" id="editar" (click)="editarAprendiz(aprendiz)"></i>
-                  <i class="fa-solid fa-plus" id="detalles" (click)="toggleShowAllFields()"></i>
-                  <i class="fa-solid fa-file-pdf" id="pdf" (click)="navigateToHistorial(aprendiz)"></i>
-                  <i class="fa-solid fa-trash" id="eliminar" (click)="eliminarAprendiz(aprendiz)"></i>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-          <span>{{ currentPage }} de {{ ceil(totalItems / pageSize) }}</span>
-          <select [(ngModel)]="pageSize" (change)="onPageSizeChange()">
-            <option *ngFor="let option of pageSizeOptions" [value]="option">{{ option }}</option>
-          </select>          
-          <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Anterior</button>
-          <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage * pageSize >= totalItems">Siguiente</button>
       </div>
-    </div>
+      <div class="table-wrapper">
+          <table>
+              <thead>
+                  <tr>
+                      <th>Ficha</th>
+                      <th>Programa de Formación</th>
+                      <th>Nombre</th>
+                      <th>Apellido</th>
+                      <th *ngIf="showAllFields">Tipo de Identificación</th>
+                      <th>Identificación</th>
+                      <th>Email</th>
+                      <th>Teléfono</th>
+                      <th>Fecha de Nacimiento</th>
+                      <th *ngIf="showAllFields">Ciudad/Municipio</th>
+                      <th>Dirección</th>
+                      <th *ngIf="showAllFields">Género</th>
+                      <th *ngIf="showAllFields">EPS</th>
+                      <th *ngIf="showAllFields">Número de la EPS</th>
+                      <th *ngIf="showAllFields">Padecimientos</th>
+                      <th *ngIf="showAllFields">Medicamentos</th>
+                      <th *ngIf="showAllFields">Acudientes</th>
+                      <th *ngIf="showAllFields">Cedula acudiente</th>
+                      <th *ngIf="showAllFields">Número Acudiente</th>
+                      <th>Acciones</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let aprendiz of aprendicesToLoad">
+                      <td>{{ aprendiz.ficha }}</td>
+                      <td>{{ aprendiz.pFormacion }}</td>
+                      <td>{{ aprendiz.nombre }}</td>
+                      <td>{{ aprendiz.apellido }}</td>
+                      <td *ngIf="showAllFields">{{ aprendiz.tipoId }}</td>
+                      <td>{{ aprendiz.identificacion }}</td>
+                      <td>{{ aprendiz.email }}</td>
+                      <td>{{ aprendiz.telefono }}</td>
+                      <td>{{ aprendiz.fechaNacimiento }}</td>
+                      <td *ngIf="showAllFields">{{ aprendiz.ciudad }}</td>
+                      <td>{{ aprendiz.direccion }}</td>
+                      <td *ngIf="showAllFields">{{ aprendiz.sexo }}</td>
+                      <td *ngIf="showAllFields">{{ aprendiz.eps }}</td>
+                      <td *ngIf="showAllFields">{{ aprendiz.numeroEps }}</td>
+                      <td *ngIf="showAllFields">{{ aprendiz.padecimientos }}</td>
+                      <td *ngIf="showAllFields">{{ aprendiz.medicamentos }}</td>
+                      <td *ngIf="showAllFields">{{ aprendiz.acudiente }}</td>
+                      <td *ngIf="showAllFields">{{ aprendiz.acudienteId }}</td>
+                      <td *ngIf="showAllFields">{{ aprendiz.numAcudiente }}</td>
+                      <td>
+                          <i title="Editar" class="fa-solid fa-file-pen" id="editar"
+                              (click)="editarAprendiz(aprendiz)"></i>
+                          <i title="Detalles" class="fa-solid fa-circle-info" id="detalles"
+                              (click)="toggleShowAllFields()"></i>
+                          <i title="Historial" class="fa-solid fa-folder" id="pdf"
+                              (click)="navigateToHistorial(aprendiz)"></i>
+                          <i title="Eliminar" class="fa-solid fa-trash" id="eliminar"
+                              (click)="eliminarAprendiz(aprendiz)"></i>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      <div class="next">
+          <div class="page">
+              <span>{{ currentPage }} de {{ ceil(totalItems / pageSize) }}</span>
+              <select [(ngModel)]="pageSize" (change)="onPageSizeChange()">
+                  <option *ngFor="let option of pageSizeOptions" [value]="option">{{ option }}</option>
+              </select>
+          </div>
+          <div>
+              <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1"><i class="fa-solid fa-forward-step fa-rotate-180"></i> Anterior</button>
+              <button (click)="onPageChange(currentPage + 1)"
+                  [disabled]="currentPage * pageSize >= totalItems">Siguiente <i class="fa-solid fa-forward-step"></i></button>
+          </div>
+      </div>
   </div>
-  
+
   <div class="uso">
-    <h4>¿Cómo Usar?</h4>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Velit quibusdam mollitia error ratione quod molestias delectus atque, laborum reprehenderit ipsa vitae molestiae consectetur, praesentium omnis optio nesciunt illo dicta earum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut tempore provident alias dolores. Dolores alias eum id ratione dicta! Cupiditate error consectetur itaque voluptatum facilis exercitationem praesentium explicabo iste saepe. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis dignissimos labore sint aut, quia, sequi laborum suscipit reprehenderit aliquid corporis, tenetur tempore quidem mollitia maiores? Assumenda reiciendis vel delectus earum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur consequatur aperiam porro voluptate, saepe laudantium, maxime perferendis error eos cumque provident. Necessitatibus eligendi, fugit tempore quod maiores repellendus omnis qui.</p>
+      <h4>¿Cómo Usar?</h4>
+      <p>Esta tabla contiene una columna de acciones en la parte derecha la cual cuenta con cuatro tipos: <strong>Editar</strong>, el cual es para editar los datos de algún usuario. <strong>Detalles</strong>, el cual es para ver los datos completos de cada usuario. <strong>Historial</strong>, el cual es para ver el historial médico de cada usuario. <strong>Eliminar</strong>, el cual es para borrar un usuario de dicha tabla. Esta tabla, por seguridad está diseñada para que cuando se salga de la tabla y se dirija a otro apartado del software se cierre automáticamente la sesión. En la parte superior derecha de nuestra pantalla, podemos ver un botón de búsqueda el cual sirve para buscar usuarios específicos mediantes el número del documento de identificación, para que salgan de nuevo todos los campos, simplemente es borrar el documento escrito y dar click de nuevo en el botón "Buscar". Bajo la tabla veremos un conteo, allí podremos elegir cuántos usuarios podemos ver por cada página, si queremos ir a la siguiente página, pulsamos "Siguiente"; si queremos ir a la página anterior, pulsamos "Anterior"</p>
   </div>
 
   <footer>
-    <p>&copy; Msp Project - 2023 - Adso.</p>
+      <p>2023 &copy; Msp Project - Adso.</p>
   </footer>
 
 </body>

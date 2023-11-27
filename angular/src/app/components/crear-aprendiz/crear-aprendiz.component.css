@@ -27,7 +27,7 @@ form > h1{
   text-align: center;
   margin: 0px 20px 10px;
   color: #142861;
-  font-family: 'Playpen Sans', cursive;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 hr{
@@ -46,7 +46,7 @@ label{
   font-weight: bold;
   margin-bottom: 5px;
   color: #142861;
-  font-family: 'Playpen Sans', cursive;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 input, select, textarea{
@@ -55,7 +55,7 @@ input, select, textarea{
   border-radius: 5px;
   font-size: 16px;
   color: #001248;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 input:focus{
@@ -94,7 +94,7 @@ button{
   background-color: white;
   cursor: pointer;
   margin: 20px 20px 0px;
-  font-family: 'Playpen Sans', cursive;
+  font-family: 'Nunito', sans-serif;
 }
 
 button:hover{
@@ -105,12 +105,13 @@ button:hover{
 
 .text-danger{
   color: red;
-  font-family: 'Playpen Sans', cursive;
+  font-family: 'Bebas Neue', sans-serif;
 } 
 
 footer{
   padding: 15px;
   background-color: #2d68c8;
   text-align: center;
-  font-weight: bold;
+  font-weight: bold;
+  font-family: 'Bebas Neue', sans-serif;
 }

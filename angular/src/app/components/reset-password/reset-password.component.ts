@@ -39,7 +39,13 @@ export class ResetPasswordComponent implements OnInit {
             icon: 'success',
             title: 'Contraseña restablecida exitosamente',
             showConfirmButton: false,
-            timer: 1500
+            timer: 1500,
+            didOpen: () => {
+              const container = Swal.getPopup();
+              if (container) {
+                container.style.fontFamily = 'Nunito';
+              }
+            }
           });
 
           this.router.navigate(['/login']);
@@ -54,7 +60,13 @@ export class ResetPasswordComponent implements OnInit {
             title: 'Oops...',
             text: 'El enlace de restablecimiento de contraseña es inválido o ha caducado',
             showConfirmButton: false,
-            timer: 1600
+            timer: 1600,
+            didOpen: () => {
+              const container = Swal.getPopup();
+              if (container) {
+                container.style.fontFamily = 'Nunito';
+              }
+            }
           }); // alerta de error
         }
       );
@@ -67,7 +79,13 @@ export class ResetPasswordComponent implements OnInit {
         title: 'Oops...',
         text: 'Las contraseñas no coinciden. Por favor, verifique e inténtelo de nuevo.',
         showConfirmButton: false,
-        timer: 1500
+        timer: 1500,
+        didOpen: () => {
+          const container = Swal.getPopup();
+          if (container) {
+            container.style.fontFamily = 'Nunito';
+          }
+        }
         });// Muestra un mensaje de error
     }
   }

@@ -15,19 +15,25 @@
 .noform h1{
   margin-bottom: 10px;
   color: #001248;
-  font-family: 'Playpen Sans', cursive;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 .noform p{
   margin-bottom: 20px;
   color: gray;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Nunito', sans-serif;
+}
+
+.danger > p{
+  color: red;
+  font-weight: bold;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 .links{
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
 }
 
 .links a{
@@ -41,7 +47,7 @@
   background-color: white;
   cursor: pointer;
   margin: 10px 20px 20px 0px;
-  font-family: 'Playpen Sans', cursive;
+  font-family: 'Nunito', sans-serif;
 }
 
 .links a:hover{
@@ -70,7 +76,7 @@ form > h1{
   text-align: center;
   margin: 20px 20px 10px;
   color: #142861;
-  font-family: 'Playpen Sans', cursive;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 hr{
@@ -89,7 +95,7 @@ label{
   font-weight: bold;
   margin-bottom: 5px;
   color: #142861;
-  font-family: 'Playpen Sans', cursive;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 input{
@@ -145,7 +151,7 @@ button{
   background-color: white;
   cursor: pointer;
   margin: 20px;
-  font-family: 'Playpen Sans', cursive;
+  font-family: 'Nunito', sans-serif;
 }
 
 button:hover{
@@ -161,7 +167,7 @@ button:hover{
   background-color: #142861;
   color: white;
   padding: 30px 0px 0px;
-  font-family: 'Playpen Sans', cursive;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 .section-2{
@@ -175,7 +181,7 @@ button:hover{
 
 .tarjeta{
   width: 100%;
-  height: 420px;
+  height: auto;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 8px 8px 8px #001248;
@@ -183,6 +189,7 @@ button:hover{
   margin: 15px;
   transition: transform 0.2s ease-in-out;
   opacity: 0.6;
+  font-family: 'Nunito', sans-serif;
 }
 
 .tarjeta img{
@@ -194,12 +201,11 @@ button:hover{
 .tarjeta h2{
   margin: 10px 10px 10px 0px;
   color: #001248;
-  font-family: 'Playpen Sans', cursive;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 .tarjeta p{
   color: gray;
-  font-family: 'Lato', sans-serif;
 }
 
 span{
@@ -219,5 +225,6 @@ footer{
   background-color: #2d68c8;
   text-align: center;
   font-weight: bold;
-  font-family: 'Playpen Sans', cursive;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
 }

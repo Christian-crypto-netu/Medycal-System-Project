@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HistorialService } from '../../services/historial.service';
 import { AuthService } from 'src/app/services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-historial',
@@ -35,6 +36,18 @@ export class HistorialComponent implements OnInit {
     this.historialService.crearHistorial(this.aprendizId, this.historial).subscribe(
       () => {
         console.log('Historial guardado exitosamente');
+        Swal.fire({
+          icon: 'success',
+          title: 'Hecho',
+          text: "El historial ha sido guardado exitosamente.",
+          didOpen: () => {
+            const container = Swal.getPopup();
+            if (container) {
+              container.style.fontFamily = 'Nunito';
+            }
+          }
+        })
+        this.obtenerHistoriales();
       },
       error => {
         console.error('Error al guardar el historial:', error);
@@ -98,8 +111,20 @@ export class HistorialComponent implements OnInit {
       this.historialService.eliminarHistorial(historialId).subscribe(
         () => {
           console.log('Historial eliminado exitosamente');
+          Swal.fire({
+            icon: 'success',
+            title: 'Hecho',
+            text: "El historial ha sido eliminado exitosamente.",
+            didOpen: () => {
+              const container = Swal.getPopup();
+              if (container) {
+                container.style.fontFamily = 'Nunito';
+              }
+            }
+          })
           // Vuelve a cargar la lista de historiales después de eliminar
           this.obtenerHistoriales();
+          
         },
         error => {
           console.error('Error al eliminar el historial:', error);

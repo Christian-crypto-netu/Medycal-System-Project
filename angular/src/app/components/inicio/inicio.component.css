@@ -21,13 +21,13 @@
 .section-1-2 h1{
   margin-bottom: 20px;
   color: #142861;
-  font-family: 'Playpen Sans', cursive;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 .section-1-2 p{
   margin-bottom: 30px;
   color: gray;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 .section-1-2 a{
@@ -38,7 +38,7 @@
   color: gray;
   font-weight: bold;
   transition: all 0.3s ease-in-out;
-  font-family: 'Playpen Sans', cursive;
+  font-family: 'Nunito', sans-serif;
 }
 
 .section-1-2 a:hover{
@@ -66,7 +66,7 @@ span{
   justify-content: center;
   margin-top: 30px;
   color: white;
-  font-family: 'Playpen Sans', cursive;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 .conta-2{
@@ -79,7 +79,7 @@ span{
 
 .inicio1{
   transition: box-shadow 0.3s ease-in-out;
-  height: 350px;
+  height: 400px;
   width: 400px;
   margin: 20px;
   background-color: white;
@@ -92,14 +92,14 @@ span{
   text-align: center;
   color: #142861;
   padding: 30px 10px 5px;
-  font-family: 'Playpen Sans', cursive;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 .inicio1 p{
   font-size: 20px;
   padding: 5px 30px 20px;
   color: gray;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 .section-a{
@@ -117,7 +117,7 @@ span{
   color: gray;
   font-weight: bold;
   transition: all 0.3s ease-in-out;
-  font-family: 'Playpen Sans', cursive;
+  font-family: 'Nunito', sans-serif;
 }
 
 .section-a a:hover{
@@ -128,7 +128,7 @@ span{
 
 .inicio2{
   transition: box-shadow 0.3s ease-in-out;
-  height: 350px;
+  height: 400px;
   width: 400px;
   margin: 20px;
   background-color: white;
@@ -141,14 +141,14 @@ span{
   text-align: center;
   color: #142861;
   padding: 30px 10px 5px;
-  font-family: 'Playpen Sans', cursive;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 .inicio2 p{
   font-size: 20px;
   padding: 5px 30px 20px;
   color: gray;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 footer{
@@ -156,5 +156,6 @@ footer{
   background-color: #2d68c8;
   text-align: center;
   font-weight: bold;
-  font-family: 'Playpen Sans', cursive;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
 }

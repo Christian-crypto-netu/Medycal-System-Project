@@ -1,75 +1,104 @@
-<!-- historial.component.html -->
-
 <body>
-  <header>
-    <img src="assets/images/logo.png" alt="">
-    <nav>
-      <a routerLink="/">Inicio</a>
-      <a routerLink="/crear-aprendiz">Registrate</a>
-      <ng-container *ngIf="estaAutenticado(); else inicioSesion">
-        <!-- Mostrar el enlace "Cerrar Sesión" cuando el usuario ha iniciado sesión -->
-        <a (click)="cerrarSesion()">Cerrar Sesión</a>
-      </ng-container>
-      <ng-template #inicioSesion>
-        <!-- Mostrar el enlace "Inicio Sesión" cuando el usuario no ha iniciado sesión -->
-        <a routerLink="/login">Inicio Sesión</a>
-      </ng-template>
-    </nav>
-  </header>
+    <header>
+        <img src="assets/images/logo.png" alt="">
+        <nav>
+            <a routerLink="/">Inicio</a>
+            <a routerLink="/crear-aprendiz">Registrate</a>
+            <ng-container *ngIf="estaAutenticado(); else inicioSesion">
+                <!-- Mostrar el enlace "Cerrar Sesión" cuando el usuario ha iniciado sesión -->
+                <a (click)="cerrarSesion()" class="salir">Cerrar Sesión<i class="fa-solid fa-right-from-bracket"></i></a>
+            </ng-container>
+            <ng-template #inicioSesion>
+                <!-- Mostrar el enlace "Inicio Sesión" cuando el usuario no ha iniciado sesión -->
+                <a routerLink="/login">Inicio Sesión</a>
+            </ng-template>
+        </nav>
+    </header>
 
-<div class="historial-form">
-  <h2>Nuevo Historial Médico</h2>
-  <form (ngSubmit)="guardarHistorial()" #historialForm="ngForm">
-    <div class="form-group">
-      <label for="sintomas">Síntomas:</label>
-      <textarea id="sintomas" name="sintomas" [(ngModel)]="historial.sintomas" required></textarea>
+    <div class="volver">
+        <button type="button" class="button" routerLink="/listar-aprendiz">Volver</button>
     </div>
-    <div class="form-group">
-      <label for="procedimientos">Procedimientos:</label>
-      <textarea id="procedimientos" name="procedimientos" [(ngModel)]="historial.procedimientos" required></textarea>
+
+    <div class="general">
+        <div class="form">
+            <h1>Nuevo Historial Médico:</h1>
+            <hr>
+            <form (ngSubmit)="guardarHistorial()" #historialForm="ngForm">
+                <div class="form-group">
+                    <label for="sintomas">Síntomas:</label>
+                    <textarea id="sintomas" name="sintomas" [(ngModel)]="historial.sintomas" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="procedimientos">Procedimientos:</label>
+                    <textarea id="procedimientos" name="procedimientos" [(ngModel)]="historial.procedimientos"
+                        required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="medicamentos">Medicamentos:</label>
+                    <textarea id="medicamentos" name="medicamentos" [(ngModel)]="historial.medicamentos"
+                        required></textarea>
+                </div>
+                <div class="button">
+                    <button type="submit" [disabled]="historialForm.invalid"><i class="fa-solid fa-floppy-disk"></i> Guardar Historial</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="historial">
+            <h1>Lista de Historiales Médicos:</h1>
+            <hr>
+            <div class="fechas">
+                <div>
+                    <label for="fechaInicio">Fecha de Inicio:</label>
+                    <input type="date" id="fechaInicio" [(ngModel)]="fechaInicio">
+                </div>
+                <div>
+                    <label for="fechaFin">Fecha de Fin:</label>
+                    <input type="date" id="fechaFin" [(ngModel)]="fechaFin">
+                </div>
+                <div class="button">
+                    <button (click)="obtenerHistorialesPorFecha()"><i class="fa-solid fa-calendar-days"></i> Obtener por Fecha</button>
+                </div>
+            </div>
+
+            <div class="listado" *ngIf="historiales.length > 0; else noHistoriales">
+                <h1>Historiales:</h1>
+                <hr>
+                <div class="lista" *ngFor="let historial of historiales">
+                    <div class="cabecera" (click)="toggleHistorial(historial)">
+                        <h2>Fecha de Creación:</h2>
+                        <p title="Ver Historial">{{ historial.fechaCreacion }} </p>
+                    </div>
+                    <div *ngIf="historial.expanded" class="historial-details">
+                        <div class="hola">
+                            <h3>Síntomas:</h3>
+                            <p>{{ historial.sintomas }}</p>
+                        </div>
+                        <div class="hola">
+                            <h3>Procedimientos:</h3>
+                            <p>{{ historial.procedimientos }}</p>
+                        </div>
+                        <div class="hola">
+                            <h3>Medicamentos:</h3>
+                            <p>{{ historial.medicamentos }}</p>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button (click)="eliminarHistorial(historial._id)"><i class="fa-solid fa-trash"></i> Eliminar Historial</button>
+                        <button (click)="descargarPDF(historial._id)"><i class="fa-solid fa-file-pdf"></i> Descargar PDF</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-      <label for="medicamentos">Medicamentos:</label>
-      <textarea id="medicamentos" name="medicamentos" [(ngModel)]="historial.medicamentos" required></textarea>
+
+    <div>
+        <ng-template #noHistoriales>
+            <p class="nohay">No hay historiales disponibles.</p>
+        </ng-template>
     </div>
-    <button type="submit" [disabled]="historialForm.invalid">Guardar Historial</button>
-  </form>
-</div>
 
-<div>
-  <label for="fechaInicio">Fecha de Inicio:</label>
-  <input type="date" id="fechaInicio" [(ngModel)]="fechaInicio">
-  
-  <label for="fechaFin">Fecha de Fin:</label>
-  <input type="date" id="fechaFin" [(ngModel)]="fechaFin">
-
-  <button (click)="obtenerHistorialesPorFecha()">Obtener por Fecha</button>
-</div>
-
-<div *ngIf="historiales.length > 0; else noHistoriales">
-  <h2>Historiales:</h2>
-  <ul class="historial-list">
-    <li *ngFor="let historial of historiales">
-      <div class="historial-header" (click)="toggleHistorial(historial)">
-        <p><strong>Fecha de Creación:</strong> {{ historial.fechaCreacion }} </p>
-      </div>
-      <div *ngIf="historial.expanded" class="historial-details">
-        <p><strong>Síntomas:</strong> {{ historial.sintomas }}</p>
-        <p><strong>Procedimientos:</strong> {{ historial.procedimientos }}</p>
-        <p><strong>Medicamentos:</strong> {{ historial.medicamentos }}</p>
-        <button (click)="eliminarHistorial(historial._id)">Eliminar Historial</button>
-        <button (click)="descargarPDF(historial._id)">Descargar PDF</button>
-      </div>
-    </li>
-  </ul>
-</div>
-
-<ng-template #noHistoriales>
-  <p>No hay historiales disponibles.</p>
-</ng-template>
-
-<div>
-  <button type="button" class="btn btn-info" routerLink="/listar-aprendiz">Volver</button>
-</div>
-
-
+    <footer>
+        <p>2023 &copy; Msp Project - Adso.</p>
+    </footer>
+</body>

@@ -18,11 +18,16 @@ export class ResetPasswordRequestComponent {
       this.authService.resetPasswordRequest(this.email).subscribe(response => {
         // Manejar la respuesta del servidor, como mostrar un mensaje al usuario
         console.log('Response from server:', response);
-        Swal.fire(
-            'Buen Trabajo!',
-            'La peticion de reestablecimiento de contraseña se ha enviado al correo!',
-            'success'
-        )
+        Swal.fire({
+          icon: 'success',
+          text: 'Correo de recuperacion enviado correctamente.',
+          didOpen: () => {
+            const container = Swal.getPopup();
+            if (container) {
+              container.style.fontFamily = 'Nunito';
+            }
+          }
+        });
       });
     } else {
       // Manejar el caso en el que el campo de correo electrónico está vacío
