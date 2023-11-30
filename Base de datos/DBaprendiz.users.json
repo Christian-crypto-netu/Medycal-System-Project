@@ -1,0 +1,15 @@
+[{
+  "_id": {
+    "$oid": "6518cb8200c15023fe94b103"
+  },
+  "username": "Chr17",
+  "email": "ccardenad98@gmail.com",
+  "password": "$2b$10$Gaol2aLpnt724dzBLEwX6eDl/OXPfMr9nFEUYthqXYmPWFwjAF0s.",
+  "salt": "$2b$10$Gaol2aLpnt724dzBLEwX6e",
+  "__v": 0,
+  "resetPasswordExpires": {
+    "$date": "2023-11-30T14:47:09.999Z"
+  },
+  "resetPasswordToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTE4Y2I4MjAwYzE1MDIzZmU5NGIxMDMiLCJpYXQiOjE3MDEzNTIwMjksImV4cCI6MTcwMTM1NTYyOX0.lY5d2KRmA6bABG97Y4dh08FiXqOEKwkmFh8-5rruUGM",
+  "resetPasswordUsed": true
+}]

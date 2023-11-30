@@ -1,0 +1,135 @@
+[{
+  "_id": {
+    "$oid": "65617d61842e925f86fdba1a"
+  },
+  "aprendizId": {
+    "$oid": "65566e086a89ba293fe75c28"
+  },
+  "sintomas": "No hay",
+  "procedimientos": "No hay",
+  "medicamentos": "No hay",
+  "fechaCreacion": {
+    "$date": "2023-11-25T04:51:45.449Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65617d64842e925f86fdba1d"
+  },
+  "aprendizId": {
+    "$oid": "65566e086a89ba293fe75c28"
+  },
+  "sintomas": "No hay",
+  "procedimientos": "No hay",
+  "medicamentos": "No hay",
+  "fechaCreacion": {
+    "$date": "2023-11-25T04:51:48.208Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6563a9ba1356eded12cc26b7"
+  },
+  "aprendizId": {
+    "$oid": "65568aa86a89ba293fe75cfe"
+  },
+  "sintomas": "aehe",
+  "procedimientos": "dshdhs",
+  "medicamentos": "rsrtu",
+  "fechaCreacion": {
+    "$date": "2023-11-26T20:25:30.405Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6563a9bd1356eded12cc26ba"
+  },
+  "aprendizId": {
+    "$oid": "65568aa86a89ba293fe75cfe"
+  },
+  "sintomas": "aehe",
+  "procedimientos": "dshdhs",
+  "medicamentos": "rsrtu",
+  "fechaCreacion": {
+    "$date": "2023-11-26T20:25:33.414Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6563a9bd1356eded12cc26bd"
+  },
+  "aprendizId": {
+    "$oid": "65568aa86a89ba293fe75cfe"
+  },
+  "sintomas": "aehe",
+  "procedimientos": "dshdhs",
+  "medicamentos": "rsrtu",
+  "fechaCreacion": {
+    "$date": "2023-11-26T20:25:33.743Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6563a9be1356eded12cc26c0"
+  },
+  "aprendizId": {
+    "$oid": "65568aa86a89ba293fe75cfe"
+  },
+  "sintomas": "aehe",
+  "procedimientos": "dshdhs",
+  "medicamentos": "rsrtu",
+  "fechaCreacion": {
+    "$date": "2023-11-26T20:25:34.045Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6563a9be1356eded12cc26c3"
+  },
+  "aprendizId": {
+    "$oid": "65568aa86a89ba293fe75cfe"
+  },
+  "sintomas": "aehe",
+  "procedimientos": "dshdhs",
+  "medicamentos": "rsrtu",
+  "fechaCreacion": {
+    "$date": "2023-11-26T20:25:34.135Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6563a9be1356eded12cc26c6"
+  },
+  "aprendizId": {
+    "$oid": "65568aa86a89ba293fe75cfe"
+  },
+  "sintomas": "aehe",
+  "procedimientos": "dshdhs",
+  "medicamentos": "rsrtu",
+  "fechaCreacion": {
+    "$date": "2023-11-26T20:25:34.265Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6564f709861de35d3ab35240"
+  },
+  "aprendizId": {
+    "$oid": "649e07f3a18e2bc85efc4350"
+  },
+  "sintomas": "Dolor de cabeza, fiebre, tos",
+  "procedimientos": "Se le suministró un medicamento para el malestar general de la gripa",
+  "medicamentos": "Dolex Gripa.",
+  "fechaCreacion": {
+    "$date": "2023-11-27T20:07:37.952Z"
+  },
+  "__v": 0
+}]

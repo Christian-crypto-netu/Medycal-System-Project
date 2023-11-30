@@ -1,62 +1,426 @@
 [{
   "_id": {
-    "$oid": "646fe5691f098a78b9997593"
+    "$oid": "649e07f3a18e2bc85efc4350"
   },
   "ficha": 2502880,
   "pFormacion": "ADSO",
-  "nombre": "Cristian",
-  "apellido": "Cardenas Gonzalez",
-  "tipoId": "Cedula",
+  "nombre": "Cristian ",
+  "apellido": "Cardenas",
+  "tipoId": "cedula",
   "identificacion": 1005623188,
-  "email": "ccamilocar@hotmail.com",
+  "email": "ccardenad98@gmail.com",
   "telefono": {
     "$numberLong": "3183876505"
   },
-  "fechaNacimiento": "17-03-2002",
-  "ciudad": "Puerto Parra",
-  "direccion": "Cra 43",
-  "sexo": "Masculino",
-  "eps": "Sanitas",
-  "numeroEps": 0,
-  "padecimientos": "ninguno",
-  "medicamentos": "ninguno",
+  "fechaNacimiento": "2002-03-17",
+  "ciudad": "Pto Parra",
+  "direccion": "cra45",
+  "sexo": "masculino",
+  "eps": "sanitas",
+  "numeroEps": 1000836533,
+  "padecimientos": "no",
+  "medicamentos": "acetaminofen",
   "acudiente": "Carlos Cardenas",
-  "acudienteId": {
-    "$numberLong": "2340596483"
-  },
+  "acudienteId": 598253271,
   "numAcudiente": {
-    "$numberLong": "3184258706"
+    "$numberLong": "3184652987"
   },
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "646ff11fe1761ef1cc762316"
+    "$oid": "6554de6a23b67add46604649"
   },
   "ficha": 2502880,
   "pFormacion": "ADSO",
-  "nombre": "Alejo Camilo",
-  "apellido": "Cardenas Gonzalez",
-  "tipoId": "Cedula",
-  "identificacion": 1005623188,
-  "email": "ccamilocar@hotmail.com",
+  "nombre": "Samuel",
+  "apellido": "Carvajal Bedoya",
+  "tipoId": "cedula",
+  "identificacion": 1025643940,
+  "email": "casato311409@gmail.com",
   "telefono": {
-    "$numberLong": "3183876505"
+    "$numberLong": "3147709706"
   },
-  "fechaNacimiento": "17-03-2002",
-  "ciudad": "Puerto Parra",
-  "direccion": "Cra 43",
-  "sexo": "Masculino",
-  "eps": "Sanitas",
-  "numeroEps": 0,
-  "padecimientos": "ninguno",
-  "medicamentos": "ninguno",
-  "acudiente": "Carlos Cardenas",
-  "acudienteId": {
-    "$numberLong": "2340596483"
-  },
+  "fechaNacimiento": "2023-11-15",
+  "ciudad": "Medellín",
+  "direccion": "Cll 45c #13-17 Buenos Aires",
+  "sexo": "masculino",
+  "eps": "Salud Todal",
+  "numeroEps": 2214922,
+  "padecimientos": "No",
+  "medicamentos": "No",
+  "acudiente": "Hilari Bedoya",
+  "acudienteId": 1005623188,
   "numAcudiente": {
-    "$numberLong": "3184258706"
+    "$numberLong": "3186582505"
   },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6555540c6e236345766acc52"
+  },
+  "ficha": 123456,
+  "pFormacion": "ADSO",
+  "nombre": "Anna",
+  "apellido": "Lopez",
+  "tipoId": "cedula",
+  "identificacion": 1234567890,
+  "email": "papita321@yahoo.com",
+  "telefono": 123456789,
+  "fechaNacimiento": "2023-11-15",
+  "ciudad": "Buenos Aires",
+  "direccion": "cra45",
+  "sexo": "masculino",
+  "eps": "sanitas",
+  "numeroEps": 12345,
+  "padecimientos": "NO\n",
+  "medicamentos": "NO",
+  "acudiente": "Rafael guevara",
+  "acudienteId": 123456789,
+  "numAcudiente": 123456789,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65565f0d6a89ba293fe75be0"
+  },
+  "ficha": 12345678,
+  "pFormacion": "ADSO",
+  "nombre": "Cristian ",
+  "apellido": "Lopez",
+  "tipoId": "cedula",
+  "identificacion": 1005623189,
+  "email": "ccardenad98@gmail.com",
+  "telefono": {
+    "$numberLong": "3184939875"
+  },
+  "fechaNacimiento": "2023-11-16",
+  "ciudad": "Buenos Aires",
+  "direccion": "cra45",
+  "sexo": "masculino",
+  "eps": "sanitas",
+  "numeroEps": 123456789,
+  "padecimientos": "no",
+  "medicamentos": "no",
+  "acudiente": "Rafael guevara",
+  "acudienteId": 123456789,
+  "numAcudiente": 123456789,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65566e2b6a89ba293fe75c34"
+  },
+  "ficha": 123456,
+  "pFormacion": "ADSO",
+  "nombre": "Anna",
+  "apellido": "Lopez",
+  "tipoId": "cedula",
+  "identificacion": 987654325,
+  "email": "samu123@gmail.com",
+  "telefono": 123456789,
+  "fechaNacimiento": "2023-11-16",
+  "ciudad": "Buenos Aires",
+  "direccion": "cra45",
+  "sexo": "masculino",
+  "eps": "sanitas",
+  "numeroEps": 1234567890,
+  "padecimientos": "no",
+  "medicamentos": "no",
+  "acudiente": "Rafael guevara",
+  "acudienteId": 1234567890,
+  "numAcudiente": 1234567890,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65566e346a89ba293fe75c37"
+  },
+  "ficha": 123456,
+  "pFormacion": "ADSO",
+  "nombre": "Anna",
+  "apellido": "Lopez",
+  "tipoId": "cedula",
+  "identificacion": 987654326,
+  "email": "samu123@gmail.com",
+  "telefono": 123456789,
+  "fechaNacimiento": "2023-11-16",
+  "ciudad": "Buenos Aires",
+  "direccion": "cra45",
+  "sexo": "masculino",
+  "eps": "sanitas",
+  "numeroEps": 1234567890,
+  "padecimientos": "no",
+  "medicamentos": "no",
+  "acudiente": "Rafael guevara",
+  "acudienteId": 1234567890,
+  "numAcudiente": 1234567890,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65566e3d6a89ba293fe75c3a"
+  },
+  "ficha": 123456,
+  "pFormacion": "ADSO",
+  "nombre": "Anna",
+  "apellido": "Lopez",
+  "tipoId": "cedula",
+  "identificacion": 987654327,
+  "email": "samu123@gmail.com",
+  "telefono": 123456789,
+  "fechaNacimiento": "2023-11-16",
+  "ciudad": "Buenos Aires",
+  "direccion": "cra45",
+  "sexo": "masculino",
+  "eps": "sanitas",
+  "numeroEps": 1234567890,
+  "padecimientos": "no",
+  "medicamentos": "no",
+  "acudiente": "Rafael guevara",
+  "acudienteId": 1234567890,
+  "numAcudiente": 1234567890,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65566e456a89ba293fe75c3d"
+  },
+  "ficha": 123456,
+  "pFormacion": "ADSO",
+  "nombre": "Anna",
+  "apellido": "Lopez",
+  "tipoId": "cedula",
+  "identificacion": 987654328,
+  "email": "samu123@gmail.com",
+  "telefono": 123456789,
+  "fechaNacimiento": "2023-11-16",
+  "ciudad": "Buenos Aires",
+  "direccion": "cra45",
+  "sexo": "masculino",
+  "eps": "sanitas",
+  "numeroEps": 1234567890,
+  "padecimientos": "no",
+  "medicamentos": "no",
+  "acudiente": "Rafael guevara",
+  "acudienteId": 1234567890,
+  "numAcudiente": 1234567890,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65568a996a89ba293fe75cf8"
+  },
+  "ficha": 12345,
+  "pFormacion": "ADSO",
+  "nombre": "Anna",
+  "apellido": "Lopez",
+  "tipoId": "cedula",
+  "identificacion": 1234567891,
+  "email": "papita321@yahoo.com",
+  "telefono": {
+    "$numberLong": "3184939875"
+  },
+  "fechaNacimiento": "2023-11-16",
+  "ciudad": "Buenos Aires",
+  "direccion": "cra45",
+  "sexo": "femenino",
+  "eps": "sanitas",
+  "numeroEps": 123456789,
+  "padecimientos": "no",
+  "medicamentos": "no",
+  "acudiente": "Rafael guevara",
+  "acudienteId": 1234567890,
+  "numAcudiente": 123456789,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65568aa26a89ba293fe75cfb"
+  },
+  "ficha": 12345,
+  "pFormacion": "ADSO",
+  "nombre": "Anna",
+  "apellido": "Lopez",
+  "tipoId": "cedula",
+  "identificacion": 1234567892,
+  "email": "papita321@yahoo.com",
+  "telefono": {
+    "$numberLong": "3184939875"
+  },
+  "fechaNacimiento": "2023-11-16",
+  "ciudad": "Buenos Aires",
+  "direccion": "cra45",
+  "sexo": "femenino",
+  "eps": "sanitas",
+  "numeroEps": 123456789,
+  "padecimientos": "no",
+  "medicamentos": "no",
+  "acudiente": "Rafael guevara",
+  "acudienteId": 1234567890,
+  "numAcudiente": 123456789,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65568aa86a89ba293fe75cfe"
+  },
+  "ficha": 12345,
+  "pFormacion": "ADSO",
+  "nombre": "Anna",
+  "apellido": "Lopez",
+  "tipoId": "cedula",
+  "identificacion": 1234567893,
+  "email": "papita321@yahoo.com",
+  "telefono": {
+    "$numberLong": "3184939875"
+  },
+  "fechaNacimiento": "2023-11-16",
+  "ciudad": "Buenos Aires",
+  "direccion": "cra45",
+  "sexo": "femenino",
+  "eps": "sanitas",
+  "numeroEps": 123456789,
+  "padecimientos": "no",
+  "medicamentos": "no",
+  "acudiente": "Rafael guevara",
+  "acudienteId": 1234567890,
+  "numAcudiente": 123456789,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65568aae6a89ba293fe75d01"
+  },
+  "ficha": 12345,
+  "pFormacion": "ADSO",
+  "nombre": "Anna",
+  "apellido": "Lopez",
+  "tipoId": "cedula",
+  "identificacion": 1234567894,
+  "email": "papita321@yahoo.com",
+  "telefono": {
+    "$numberLong": "3184939875"
+  },
+  "fechaNacimiento": "2023-11-16",
+  "ciudad": "Buenos Aires",
+  "direccion": "cra45",
+  "sexo": "femenino",
+  "eps": "sanitas",
+  "numeroEps": 123456789,
+  "padecimientos": "no",
+  "medicamentos": "no",
+  "acudiente": "Rafael guevara",
+  "acudienteId": 1234567890,
+  "numAcudiente": 123456789,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65568ab46a89ba293fe75d04"
+  },
+  "ficha": 12345,
+  "pFormacion": "ADSO",
+  "nombre": "Anna",
+  "apellido": "Lopez",
+  "tipoId": "cedula",
+  "identificacion": 1234567895,
+  "email": "papita321@yahoo.com",
+  "telefono": {
+    "$numberLong": "3184939875"
+  },
+  "fechaNacimiento": "2023-11-16",
+  "ciudad": "Buenos Aires",
+  "direccion": "cra45",
+  "sexo": "femenino",
+  "eps": "sanitas",
+  "numeroEps": 123456789,
+  "padecimientos": "no",
+  "medicamentos": "no",
+  "acudiente": "Rafael guevara",
+  "acudienteId": 1234567890,
+  "numAcudiente": 123456789,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65568abb6a89ba293fe75d07"
+  },
+  "ficha": 12345,
+  "pFormacion": "ADSO",
+  "nombre": "Anna",
+  "apellido": "Lopez",
+  "tipoId": "cedula",
+  "identificacion": 1234567896,
+  "email": "papita321@yahoo.com",
+  "telefono": {
+    "$numberLong": "3184939875"
+  },
+  "fechaNacimiento": "2023-11-16",
+  "ciudad": "Buenos Aires",
+  "direccion": "cra45",
+  "sexo": "femenino",
+  "eps": "sanitas",
+  "numeroEps": 123456789,
+  "padecimientos": "no",
+  "medicamentos": "no",
+  "acudiente": "Rafael guevara",
+  "acudienteId": 1234567890,
+  "numAcudiente": 123456789,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65568ac26a89ba293fe75d0a"
+  },
+  "ficha": 12345,
+  "pFormacion": "ADSO",
+  "nombre": "Anna",
+  "apellido": "Lopez",
+  "tipoId": "cedula",
+  "identificacion": 1234567897,
+  "email": "papita321@yahoo.com",
+  "telefono": {
+    "$numberLong": "3184939875"
+  },
+  "fechaNacimiento": "2023-11-16",
+  "ciudad": "Buenos Aires",
+  "direccion": "cra45",
+  "sexo": "femenino",
+  "eps": "sanitas",
+  "numeroEps": 123456789,
+  "padecimientos": "no",
+  "medicamentos": "no",
+  "acudiente": "Rafael guevara",
+  "acudienteId": 1234567890,
+  "numAcudiente": 123456789,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65568ac86a89ba293fe75d0d"
+  },
+  "ficha": 12345,
+  "pFormacion": "ADSO",
+  "nombre": "Anna",
+  "apellido": "Lopez",
+  "tipoId": "cedula",
+  "identificacion": 1234567898,
+  "email": "papita321@yahoo.com",
+  "telefono": {
+    "$numberLong": "3184939875"
+  },
+  "fechaNacimiento": "2023-11-16",
+  "ciudad": "Buenos Aires",
+  "direccion": "cra45",
+  "sexo": "femenino",
+  "eps": "sanitas",
+  "numeroEps": 123456789,
+  "padecimientos": "no",
+  "medicamentos": "no",
+  "acudiente": "Rafael guevara",
+  "acudienteId": 1234567890,
+  "numAcudiente": 123456789,
   "__v": 0
 }]

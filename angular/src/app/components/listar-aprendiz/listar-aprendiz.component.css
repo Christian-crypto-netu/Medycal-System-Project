@@ -232,6 +232,7 @@ button > i{
   align-items: center;
   justify-content: flex-end;
   font-weight: bold;
+  margin-right: 26px;
 }
 
 .page{
