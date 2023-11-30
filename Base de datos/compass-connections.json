@@ -1,0 +1,26 @@
+{
+  "type": "Compass Connections",
+  "version": {
+    "$numberInt": "1"
+  },
+  "connections": [
+    {
+      "id": "67267673-beff-41f3-bddf-9d5ad7f50881",
+      "lastUsed": {
+        "$date": {
+          "$numberLong": "1701374209000"
+        }
+      },
+      "favorite": {
+        "name": "MSPdatabase",
+        "color": "color3"
+      },
+      "connectionOptions": {
+        "connectionString": "mongodb+srv://ccardenad98:udmQVbrB8qNgAZIv@mspproject.dpwapdj.mongodb.net/",
+        "oidc": {
+          "serializedState": "eyJvaWRjUGx1Z2luU3RhdGVWZXJzaW9uIjowLCJzdGF0ZSI6W119"
+        }
+      }
+    }
+  ]
+}
